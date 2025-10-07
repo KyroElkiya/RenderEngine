@@ -1,0 +1,75 @@
+RENDER ENGINE PLANS
+
+
+IMPORTANT!!!!
+
+Create a light class, containing sphere lights and rectangle lights.
+
+Create a transformation class, enabling rotation, scaling and such for Cameras, Lights, Shapes.
+
+Create a class for importing OBJ geometry.
+
+Create Physically-Based Rendering (PBR) material class, and get that all working.
+
+Volumetrics.
+
+Apply a Bounding Volume Hierarchy (BVH) optimisation algorithm, even if just a basic implimentation.
+
+Basic Texture application.
+
+
+STRETCH GOALS!!!!
+
+Setup writing to EXR files, instead of PPM files.
+
+Setup writing out an additional render pass, normals or camera-facing ratio or such.
+
+Create Render Settings class that holds all render information, file paths etc.
+
+Per component textures, so reading in textures for albedo, roughness, normal map etc.
+
+Displacement.
+
+Light warping render, think interstellar black hole rendering.
+
+HDRI implimentation.
+
+
+FUTURE PLANS!!!!
+
+Opengl viewport that is used to setup the scene.
+
+C++ QT based node graph connecting to both gl viewport and renderer, basically solaris.
+
+Impliment live render viewport, again similar to karma's live move viewport.
+
+Bucket rendering.
+
+Enable option for swap to a Vulkan viewport.
+
+
+FUTURE PROJECTS!!!!
+
+Fluid solver.
+
+Some form of sculpting program, similar to zbrush, 
+I want to learn how they work with such large volumes of geometry so easily.
+
+Some form of basic comp node program.
+
+
+
+
+
+Path tracing
+OSL - declan russel
+Integrators
+openPBR
+usd
+cross platform
+Tests
+Scene Serialisation - .rib .ass
+GLTF
+
+
+

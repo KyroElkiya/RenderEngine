@@ -4,6 +4,7 @@
 #include "components/camera.h"
 #include "renderer.h"
 #include "components/materials.h"
+#include "vec3.h"
 
 using namespace std;
 
@@ -16,18 +17,20 @@ int main() {
     auto material_left = make_shared<dieletric>(1.5);
     auto material_right = make_shared<metal>(color(0.9, 0.7, 0.0), 0.0);
 
-
     world.add(make_shared<sphere>(point3(-1.0, 0.0, -1.0), 0.5, material_left));
     world.add(make_shared<sphere>(point3(1.0, 0.0, -1.0), 0.5, material_right));
-    world.add(make_shared<sphere>(point3(0, 0, -2), 0.5, material_center));
+    world.add(make_shared<sphere>(point3(0, 0, -1), 0.5, material_center));
     world.add(make_shared<sphere>(point3(0, -100.5, -1), 100, material_ground));
 
-    // auto material_bubble = make_shared<dieletric>(1.0/ 1.5);
-    // world.add(make_shared<sphere>(point3(-1.0, 0.0, -1.0), 0.4, material_bubble));
+    auto material_bubble = make_shared<dieletric>(1.0/ 1.5);
+    world.add(make_shared<sphere>(point3(-1.0, 0.0, -1.0), 0.4, material_bubble));
 
     camera cam;
     
-    cam.center = vec3(0.0, 0.0, 0.0);
+    cam.vfov = 30;
+    cam.center = point3(-2, 2, 1);
+    cam.defocus_angle = 10.0;
+    cam.focus_distance = length(point3(-2, 2, 1) - point3(0, 0, -1));
 
     renderer rend;
 

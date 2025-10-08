@@ -19,6 +19,25 @@ public:
         z = v.z;
         return *this;
     }
+    
+    double& operator[](int i) {
+        switch(i) {
+            case 0: return x;
+            case 1: return y;
+            case 2: return z;
+            default: throw std::out_of_range("vec3 index out of range");
+        }
+    }
+
+    const double& operator[](int i) const {
+        switch(i) {
+            case 0: return x;
+            case 1: return y;
+            case 2: return z;
+            default: throw std::out_of_range("vec3 index out of range");
+        }
+    }
+
     // Negate
     vec3 operator - () const {
         return vec3(-x, -y, -z);

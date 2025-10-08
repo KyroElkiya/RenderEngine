@@ -4,11 +4,19 @@
 #include "../rayHitInfo.h"
 #include "../common.h"
 #include <unistd.h>
+#include "../aabb.h"
 
 class sphere : public sceneObject {
 public:
-    sphere(const point3 center, double radius, shared_ptr<material> mat)
-            : center(center), radius(std::fmax(0, radius)), mat(mat) {}
+    sphere(const point3 center, double radius, shared_ptr<material> mat) 
+        : center(center), radius(std::fmax(0, radius)), mat(mat) {
+        auto rvec = vec3(radius, radius, radius);
+        bbox = aabb(center - rvec, center + rvec);
+    }
+    
+    // TODO: when I add movement to the spheres, I need to write aabb function for getting bbox of moving spheres as well
+
+    aabb bounding_box() const override { return bbox; }
 
     bool intersect(const ray &r, interval ray_t, rayHitInfo &ray_hit_info) const override {
         vec3 oc = center - r.origin();
@@ -43,6 +51,7 @@ private:
     point3 center;
     double radius;
     shared_ptr<material> mat;
+    aabb bbox;
 };
 
 #endif

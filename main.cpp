@@ -5,6 +5,7 @@
 #include "renderer.h"
 #include "components/materials.h"
 #include "vec3.h"
+#include "components/bvh.h"
 
 using namespace std;
 
@@ -24,6 +25,8 @@ int main() {
 
     auto material_bubble = make_shared<dieletric>(1.0/ 1.5);
     world.add(make_shared<sphere>(point3(-1.0, 0.0, -1.0), 0.4, material_bubble));
+
+    world = sceneObjects(make_shared<bvh_node>(world));
 
     camera cam;
     

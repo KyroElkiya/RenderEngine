@@ -2,10 +2,10 @@
 #define SCENEOBJECTS_H
 
 #include "rayHitInfo.h"
-
 #include <algorithm>
 #include <memory>
 #include <vector>
+#include "aabb.h"
 
 using std::make_shared;
 using std::shared_ptr;
@@ -21,6 +21,7 @@ public:
 
     void add(shared_ptr<sceneObject> object) {
         objects.push_back(object);
+        bbox = aabb(bbox, object->bounding_box());
     } 
 
     bool intersect(const ray &r, interval ray_t, rayHitInfo &ray_hit_info) const override {
@@ -38,6 +39,10 @@ public:
     return hit_anything;
     }
 
+    aabb bounding_box() const override { return bbox; }
+
+private:
+    aabb bbox;
 };
 
 #endif

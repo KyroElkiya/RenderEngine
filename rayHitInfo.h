@@ -1,9 +1,9 @@
 #ifndef RAYHITINFO_H
 #define RAYHITINFO_H
 
-
 #include "common.h"
 #include <csignal>
+#include "aabb.h"
 
 class material;
 
@@ -28,6 +28,7 @@ public:
 
     virtual bool intersect(const ray &r, interval ray_t, rayHitInfo &ray_hit_info) const = 0;
 
+    virtual aabb bounding_box() const = 0;
 };
 
 

@@ -34,6 +34,14 @@ Light warping render, think interstellar black hole rendering.
 
 HDRI implimentation.
 
+Iridecence textures.
+
+Caustics from a diamond.
+
+Depth ray culling.
+
+Defracting Caustics.
+
 
 FUTURE PLANS!!!!
 

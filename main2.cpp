@@ -5,7 +5,7 @@
 #include "renderer.h"
 #include "components/materials.h"
 #include "vec3.h"
-#include "components/bvh.h"
+#include "optimisations/bvh.h"
 
 using namespace std;
 
@@ -63,7 +63,7 @@ int main() {
 
     rend.aspect_ratio = 16.0/9.0;
     rend.image_width = 1920;
-    rend.samples_per_pixel = 100;
+    rend.samples_per_pixel = 500;
     rend.max_depth = 50;
 
     rend.render(world, cam);

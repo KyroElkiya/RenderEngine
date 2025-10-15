@@ -5,7 +5,9 @@
 #include "renderer.h"
 #include "components/materials.h"
 #include "vec3.h"
-#include "components/bvh.h"
+#include "optimisations/bvh.h"
+#include"components/mesh.h"
+#include "objLoader.h"
 
 using namespace std;
 
@@ -17,23 +19,33 @@ int main() {
     auto material_center = make_shared<lambertian>(color(0.1, 0.7, 0.2));
     auto material_left = make_shared<dieletric>(1.5);
     auto material_right = make_shared<metal>(color(0.9, 0.7, 0.0), 0.0);
+    
+
+    shared_ptr<mesh> dragon = std::make_shared<mesh>(material_center);
+    objLoader::load("/home/Andrew/Downloads/test.obj", dragon);
+    
+    dragon->finalize();
+    
+    world.add(dragon);
+
 
     world.add(make_shared<sphere>(point3(-1.0, 0.0, -1.0), 0.5, material_left));
     world.add(make_shared<sphere>(point3(1.0, 0.0, -1.0), 0.5, material_right));
-    world.add(make_shared<sphere>(point3(0, 0, -1), 0.5, material_center));
-    world.add(make_shared<sphere>(point3(0, -100.5, -1), 100, material_ground));
+    //world.add(make_shared<sphere>(point3(0, 0, -1), 0.5, material_center));
+    world.add(make_shared<sphere>(point3(0, -101.5, -1), 100, material_ground));
 
-    auto material_bubble = make_shared<dieletric>(1.0/ 1.5);
-    world.add(make_shared<sphere>(point3(-1.0, 0.0, -1.0), 0.4, material_bubble));
+    //auto material_bubble = make_shared<dieletric>(1.0/ 1.5);
+    //world.add(make_shared<sphere>(point3(-1.0, 0.0, -1.0), 0.4, material_bubble));
 
     world = sceneObjects(make_shared<bvh_node>(world));
 
     camera cam;
     
-    cam.vfov = 30;
-    cam.center = point3(-2, 2, 1);
-    cam.defocus_angle = 10.0;
-    cam.focus_distance = length(point3(-2, 2, 1) - point3(0, 0, -1));
+    cam.vfov = 90;
+    //cam.center = point3(-2, 2, 1);
+    cam.center = point3(0);
+    cam.defocus_angle = 0;
+    cam.focus_distance = length(point3(0) - point3(0, 0, -1));
 
     renderer rend;
 

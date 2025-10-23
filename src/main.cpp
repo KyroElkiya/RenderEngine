@@ -2,11 +2,13 @@
 #include "scene/sphere.h"
 #include "camera/camera.h"
 #include "render/renderer.h"
-#include "material/material.h"
 #include "scene/bvh/bvh.h"
 #include "scene/mesh.h"
 #include "loader/objLoader.h"
 #include "core/utils.h"
+#include "material/lambertian.cpp"
+#include "material/metallic.cpp"
+#include "material/dielectric.cpp"
 
 using namespace std;
 

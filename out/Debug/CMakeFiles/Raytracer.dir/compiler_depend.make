@@ -4,6 +4,9 @@
 CMakeFiles/Raytracer.dir/src/main.cpp.o: /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/main.cpp \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/camera/camera.h \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/loader/objLoader.h \
+  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/dielectric.cpp \
+  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/lambertian.cpp \
+  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/metallic.cpp \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/threadpool.h \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/ppm_exporter.cpp \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/ppm_exporter.h \
@@ -17,6 +20,8 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: /home/Andrew/Documents/University/Showr
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/math/vec3.h \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/ray.h \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/interaction/rayHitInfo.h \
+  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/math/ivec3.h \
+  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/math/vec2.h \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/bvh/bvh.h \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/mesh.h \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/sceneObjects.h \
@@ -406,10 +411,6 @@ Raytracer: /usr/lib/Scrt1.o \
 
 /usr/include/stdlib.h:
 
-/usr/lib/libstdc++.so:
-
-/usr/include/locale.h:
-
 /usr/include/linux/sched/types.h:
 
 /usr/include/linux/close_range.h:
@@ -500,25 +501,9 @@ Raytracer: /usr/lib/Scrt1.o \
 
 /usr/include/c++/15.2.1/ext/string_conversions.h:
 
-/usr/include/bits/timesize.h:
-
-/usr/include/bits/types/wint_t.h:
-
-/usr/include/bits/sigcontext.h:
-
-/usr/include/c++/15.2.1/bits/memoryfwd.h:
-
-/usr/include/sys/ucontext.h:
-
-/usr/include/stdc-predef.h:
-
-/usr/include/c++/15.2.1/bits/stl_tempbuf.h:
+/usr/include/c++/15.2.1/ext/aligned_buffer.h:
 
 /usr/include/bits/types/struct_tm.h:
-
-/usr/include/bits/waitflags.h:
-
-/usr/include/c++/15.2.1/bits/stl_pair.h:
 
 /usr/include/bits/types/struct_sched_param.h:
 
@@ -586,21 +571,9 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 
 /usr/include/c++/15.2.1/bits/stl_bvector.h:
 
-/usr/include/c++/15.2.1/bits/char_traits.h:
-
 /usr/include/bits/types/mbstate_t.h:
 
 /usr/include/bits/signal_ext.h:
-
-/usr/include/c++/15.2.1/ext/atomicity.h:
-
-/usr/include/bits/types/struct_timespec.h:
-
-/usr/include/bits/waitstatus.h:
-
-/usr/include/bits/wchar.h:
-
-/usr/include/bits/types/struct___jmp_buf_tag.h:
 
 /usr/include/bits/setjmp.h:
 
@@ -620,35 +593,39 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 
 /usr/include/bits/pthreadtypes-arch.h:
 
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/math/vec3.h:
+/usr/include/bits/pthread_stack_min-dynamic.h:
 
-/usr/include/c++/15.2.1/bits/specfun.h:
+/usr/include/c++/15.2.1/tr1/poly_hermite.tcc:
 
-/usr/include/asm-generic/errno-base.h:
+/usr/include/bits/types/timer_t.h:
 
-/usr/include/asm/bitsperlong.h:
+/usr/include/bits/mathcalls-narrow.h:
 
-/usr/include/c++/15.2.1/bits/alloc_traits.h:
-
-/usr/include/bits/types/siginfo_t.h:
-
-/usr/include/bits/signum-arch.h:
-
-/usr/include/c++/15.2.1/bits/stl_algobase.h:
+/usr/include/bits/mathcalls-macros.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h:
 
 /usr/include/asm-generic/int-ll64.h:
 
-/usr/include/bits/mathcalls-macros.h:
+/usr/include/asm-generic/errno-base.h:
 
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/sphere.h:
+/usr/include/sys/ucontext.h:
 
-/usr/include/bits/fp-logb.h:
+/usr/include/stdc-predef.h:
+
+/usr/include/c++/15.2.1/bits/stl_tempbuf.h:
+
+/usr/include/c++/15.2.1/ext/numeric_traits.h:
+
+/usr/include/bits/getopt_core.h:
 
 /usr/include/bits/sigstack.h:
 
 /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/bvh/bvh.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/math/vec2.h:
+
+/usr/include/bits/wctype-wchar.h:
 
 /usr/include/bits/types/cookie_io_functions_t.h:
 
@@ -658,11 +635,35 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 
 /usr/include/c++/15.2.1/cstdlib:
 
+/usr/include/bits/types/siginfo_t.h:
+
+/usr/include/bits/signum-arch.h:
+
+/usr/include/c++/15.2.1/bits/stl_algobase.h:
+
 /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/ppm_exporter.h:
 
 /usr/include/sys/single_threaded.h:
 
 /usr/include/c++/15.2.1/bits/shared_ptr.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/math/interval.h:
+
+/usr/include/c++/15.2.1/ios:
+
+/usr/include/bits/thread-shared-types.h:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/ctype_base.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/aabb.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/random.h:
+
+/usr/lib/ld-linux-x86-64.so.2:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/color.h:
+
+/usr/include/c++/15.2.1/bits/stl_iterator.h:
 
 /usr/include/bits/time64.h:
 
@@ -676,37 +677,15 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 
 /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/mesh.h:
 
-/usr/include/c++/15.2.1/bits/requires_hosted.h:
-
-/usr/include/bits/ss_flags.h:
-
-/usr/include/c++/15.2.1/bits/locale_facets.tcc:
-
-/usr/include/asm/posix_types_64.h:
-
-/usr/include/bits/time.h:
-
-/usr/include/asm/posix_types.h:
-
 /usr/include/bits/sigthread.h:
 
 /usr/include/c++/15.2.1/bits/ostream.h:
 
 /usr/include/bits/floatn.h:
 
-/usr/include/c++/15.2.1/tr1/special_function_util.h:
+/usr/include/c++/15.2.1/ext/atomicity.h:
 
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/main.cpp:
-
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/ctype_base.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/aabb.h:
-
-/usr/include/c++/15.2.1/ios:
-
-/usr/include/bits/thread-shared-types.h:
-
-/usr/include/bits/byteswap.h:
+/usr/include/bits/types/struct_timespec.h:
 
 /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++config.h:
 
@@ -716,7 +695,49 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 
 /usr/include/c++/15.2.1/bits/unique_lock.h:
 
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/math/interval.h:
+/usr/include/bits/posix_opt.h:
+
+/usr/include/bits/atomic_wide_counter.h:
+
+/usr/include/bits/types/wint_t.h:
+
+/usr/include/bits/sigcontext.h:
+
+/usr/include/c++/15.2.1/bits/memoryfwd.h:
+
+/usr/include/c++/15.2.1/bits/char_traits.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/lambertian.cpp:
+
+/usr/include/bits/waitflags.h:
+
+/usr/include/c++/15.2.1/bits/stl_pair.h:
+
+/usr/include/bits/fp-logb.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/sphere.h:
+
+/usr/include/c++/15.2.1/bits/requires_hosted.h:
+
+/usr/include/bits/ss_flags.h:
+
+/usr/include/bits/time.h:
+
+/usr/include/asm/posix_types.h:
+
+/usr/include/c++/15.2.1/bits/locale_facets.tcc:
+
+/usr/include/asm/posix_types_64.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/math/vec3.h:
+
+/usr/include/c++/15.2.1/bits/specfun.h:
+
+/usr/include/c++/15.2.1/tr1/special_function_util.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/main.cpp:
+
+/usr/include/bits/byteswap.h:
 
 /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/sceneObjects.h:
 
@@ -724,17 +745,9 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 
 /usr/include/c++/15.2.1/bits/range_access.h:
 
-/usr/lib/ld-linux-x86-64.so.2:
+/usr/include/asm/bitsperlong.h:
 
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/color.h:
-
-/usr/include/c++/15.2.1/bits/stl_iterator.h:
-
-/usr/include/bits/posix_opt.h:
-
-/usr/include/bits/atomic_wide_counter.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/random.h:
+/usr/include/c++/15.2.1/bits/alloc_traits.h:
 
 /usr/include/asm/types.h:
 
@@ -750,8 +763,6 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 
 /usr/include/bits/confname.h:
 
-/usr/include/bits/uintn-identity.h:
-
 /usr/include/c++/15.2.1/bits/cpp_type_traits.h:
 
 /usr/include/time.h:
@@ -763,6 +774,14 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 /usr/include/bits/types/__sigval_t.h:
 
 /usr/include/c++/15.2.1/bits/version.h:
+
+/usr/include/bits/timesize.h:
+
+/usr/include/bits/types/struct___jmp_buf_tag.h:
+
+/usr/include/bits/wchar.h:
+
+/usr/include/bits/waitstatus.h:
 
 /usr/include/c++/15.2.1/system_error:
 
@@ -808,6 +827,16 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 
 /usr/include/c++/15.2.1/bits/this_thread_sleep.h:
 
+/usr/lib/libstdc++.so:
+
+/usr/include/locale.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/dielectric.cpp:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/cpu_defines.h:
+
+/usr/include/c++/15.2.1/bits/uses_allocator.h:
+
 /usr/include/errno.h:
 
 /usr/include/c++/15.2.1/tuple:
@@ -846,15 +875,13 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 
 /usr/include/bits/mathcalls-helper-functions.h:
 
-/usr/include/c++/15.2.1/tr1/poly_hermite.tcc:
+/usr/include/bits/uintn-identity.h:
 
-/usr/include/bits/types/timer_t.h:
+/usr/include/c++/15.2.1/mutex:
 
-/usr/include/bits/mathcalls-narrow.h:
+/usr/include/c++/15.2.1/ext/alloc_traits.h:
 
-/usr/include/bits/pthread_stack_min-dynamic.h:
-
-/usr/include/bits/wctype-wchar.h:
+/usr/include/bits/unistd_ext.h:
 
 /usr/include/stdio.h:
 
@@ -886,6 +913,8 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 
 /usr/include/c++/15.2.1/cwctype:
 
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/math/ivec3.h:
+
 /usr/include/c++/15.2.1/bits/allocator.h:
 
 /usr/include/c++/15.2.1/bits/atomic_base.h:
@@ -901,6 +930,10 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 /usr/include/c++/15.2.1/bits/codecvt.h:
 
 /usr/include/c++/15.2.1/bits/concept_check.h:
+
+/usr/include/c++/15.2.1/ext/concurrence.h:
+
+/usr/include/c++/15.2.1/bits/cxxabi_forced.h:
 
 /usr/include/c++/15.2.1/bits/cxxabi_init_exception.h:
 
@@ -996,6 +1029,8 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 
 /usr/include/c++/15.2.1/bits/postypes.h:
 
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/metallic.cpp:
+
 /usr/include/c++/15.2.1/bits/random.tcc:
 
 /usr/include/c++/15.2.1/bits/locale_classes.tcc:
@@ -1010,9 +1045,9 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 
 /usr/include/c++/15.2.1/bits/std_function.h:
 
-/usr/include/bits/types/struct_FILE.h:
-
 /usr/include/bits/environments.h:
+
+/usr/include/bits/types/struct_FILE.h:
 
 /usr/include/c++/15.2.1/bits/std_thread.h:
 
@@ -1032,11 +1067,11 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 
 /usr/include/c++/15.2.1/bits/stl_vector.h:
 
-/usr/include/asm-generic/bitsperlong.h:
-
 /usr/include/c++/15.2.1/bits/stl_heap.h:
 
 /usr/include/asm-generic/types.h:
+
+/usr/include/asm-generic/bitsperlong.h:
 
 /usr/include/c++/15.2.1/exception:
 
@@ -1055,10 +1090,6 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 /usr/include/c++/15.2.1/bits/unique_ptr.h:
 
 /usr/include/c++/15.2.1/bits/unordered_map.h:
-
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/cpu_defines.h:
-
-/usr/include/c++/15.2.1/bits/uses_allocator.h:
 
 /usr/include/c++/15.2.1/bits/basic_string.h:
 
@@ -1092,24 +1123,8 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 
 /usr/include/c++/15.2.1/ctime:
 
-/usr/include/c++/15.2.1/ext/aligned_buffer.h:
-
 /usr/include/c++/15.2.1/bits/shared_ptr_base.h:
 
 /usr/include/c++/15.2.1/debug/assertions.h:
 
 /usr/include/c++/15.2.1/deque:
-
-/usr/include/c++/15.2.1/mutex:
-
-/usr/include/bits/unistd_ext.h:
-
-/usr/include/c++/15.2.1/ext/alloc_traits.h:
-
-/usr/include/c++/15.2.1/bits/cxxabi_forced.h:
-
-/usr/include/c++/15.2.1/ext/concurrence.h:
-
-/usr/include/bits/getopt_core.h:
-
-/usr/include/c++/15.2.1/ext/numeric_traits.h:

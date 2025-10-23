@@ -259,5 +259,10 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/omp.h \
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/bvh/bvh.h \
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/mesh.h \
+ /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/../core/math/ivec3.h \
+ /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/../core/math/vec2.h \
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/loader/objLoader.h \
- /usr/include/c++/15.2.1/sstream /usr/include/c++/15.2.1/bits/sstream.tcc
+ /usr/include/c++/15.2.1/sstream /usr/include/c++/15.2.1/bits/sstream.tcc \
+ /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/lambertian.cpp \
+ /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/metallic.cpp \
+ /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/dielectric.cpp

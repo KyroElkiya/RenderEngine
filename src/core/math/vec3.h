@@ -2,9 +2,9 @@
 
 #include "../utils.h"
 #include "../random.h"
-#include <stdio.h>
-#include <iostream>
 #include <cmath>
+
+using namespace std;
 
 class vec3 {
 public:

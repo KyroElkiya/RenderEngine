@@ -5,6 +5,9 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/main.cpp
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/camera/camera.h
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/loader/objLoader.h
+ /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/dielectric.cpp
+ /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/lambertian.cpp
+ /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/metallic.cpp
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/threadpool.h
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/ppm_exporter.cpp
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/ppm_exporter.h
@@ -18,6 +21,8 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/math/vec3.h
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/ray.h
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/interaction/rayHitInfo.h
+ /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/math/ivec3.h
+ /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/math/vec2.h
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/bvh/bvh.h
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/mesh.h
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/sceneObjects.h

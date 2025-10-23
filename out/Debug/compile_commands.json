@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/out/Debug",
+  "command": "/usr/bin/c++   -g -std=gnu++17 -o CMakeFiles/Raytracer.dir/src/main.cpp.o -c /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/main.cpp",
+  "file": "/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/main.cpp",
+  "output": "CMakeFiles/Raytracer.dir/src/main.cpp.o"
+}
+]

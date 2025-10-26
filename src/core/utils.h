@@ -1,10 +1,10 @@
 #pragma once
 
+#include "math/vec3.h"
 #include <iostream>
 #include <string>
 #include <chrono>
 #include <functional>
-#include <cmath>
 #include <memory>
 #include <limits>
 
@@ -37,5 +37,4 @@ const double pi = 3.1415926535897932385;
 inline double degrees_to_radians(double degrees) {
     return degrees * pi / 180.0;
 }
-
 

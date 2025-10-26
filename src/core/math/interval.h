@@ -35,8 +35,8 @@ class interval {
         }
         
         interval(const interval &a, const interval &b) {
-            min = a.min <= b.min ? a.min : b.min;
-            max = a.max >= b.max ? a.max : b.max; 
+            min = std::min(a.min, b.min);
+            max = std::max(a.max, b.max); 
         }
 
         static const interval empty, universe;

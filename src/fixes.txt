@@ -1,0 +1,29 @@
+Render Optimisation for large scale meshes:
+
+I have added max recursion depth to my bvh, so it doesnt try narrowing down every bbox to a single triangle
+
+
+Missing Tris issue:
+
+i have fixed aabb's ray intersection code
+missing triangle issue, fix was lowering the min tri count to 1 rather than 8
+
+
+NaN issue:
+
+tried adding ray normalization safeguard in renderer.h
+tried adding safe inverse for aabb adinv 
+
+Added NaN detector into color.h
+Added NaN detector into renderer.h
+
+Created NaN detector script for vec3 class in debug utils
+
+narrowed down to NaNs being in pixel color
+narrowed down to NaNs being in scattered.direction()
+narrowed down to NaNs being in ray_hit_info.N
+narrowed down to NaNs being from triPrim normal calculation
+
+FIXED IT!
+
+RENDERED FIRST TIME WORKING WITH THE HIGH POLY NO NANS AT 363.095 SECONDS

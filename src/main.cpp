@@ -10,10 +10,13 @@
 #include "material/metallic.cpp"
 #include "material/dielectric.cpp"
 
+#include "debug/utils.h"
+
 using namespace std;
 
 int main() {
-
+    
+    print("working");
     sceneObjects world;
 
 
@@ -21,17 +24,24 @@ int main() {
     auto material_center = make_shared<lambertian>(color(0.1, 0.7, 0.2));
     auto material_left = make_shared<dieletric>(1.5);
     auto material_right = make_shared<metal>(color(0.9, 0.7, 0.0), 0.0);
+    //auto material_chrome = make_shared<metal>(color(1, 1, 1), 0.0);
 
+    print("Creating Shared Pointer");
+    shared_ptr<mesh> test_dragon = std::make_shared<mesh>(material_center);
+    
+    print("Loading Mesh: Dragon");
+    objLoader::load("/home/Andrew/Downloads/dragon.obj", test_dragon);
 
-    //shared_ptr<mesh> test_dragon = std::make_shared<mesh>(material_center);
-    //objLoader::load("/home/Andrew/Downloads/dragon_low.obj", test_dragon);
-    //test_dragon->finalize();
-    //world.add(test_dragon);
+    print("Finalizing Mesh: Dragon");
+    test_dragon->finalize();
+
+    print("Adding Mesh: Dragon to world");
+    world.add(test_dragon);
 
 
     shared_ptr<mesh> test_back_01 = std::make_shared<mesh>(material_center);
-    shared_ptr<mesh> test_back_02 = std::make_shared<mesh>(material_right);
-    shared_ptr<mesh> test_back_03 = std::make_shared<mesh>(material_left);
+    shared_ptr<mesh> test_back_02 = std::make_shared<mesh>(material_left);
+    shared_ptr<mesh> test_back_03 = std::make_shared<mesh>(material_right);
     shared_ptr<mesh> test_floor = std::make_shared<mesh>(material_ground);
 
 
@@ -40,6 +50,21 @@ int main() {
     objLoader::load("/home/Andrew/Downloads/test_back_03.obj", test_back_03);
     objLoader::load("/home/Andrew/Downloads/test_floor.obj", test_floor);
     
+    // Assume mesh_ptr is your std::shared_ptr<mesh> holding the loaded OBJ
+    //std::cout << "Vertices:\n";
+    //for (size_t i = 0; i < test_back_01->getVertices().size(); ++i) {
+    //    const auto& v = test_back_01->getVertices()[i];
+    //    std::cout << "v" << i << ": " << v.x << " " << v.y << " " << v.z << "\n";
+    //}
+
+    //std::cout << "Triangles:\n";
+    //for (size_t i = 0; i < test_back_01->getFaces().size(); ++i) {
+    //    const auto& t = test_back_01->getFaces()[i];
+    //    std::cout << "tri " << i << ": " 
+    //          << t.vert_indices.x << " "
+    //          << t.vert_indices.y << " "
+    //          << t.vert_indices.z << "\n";
+    //}
 
     test_back_01->finalize();
     test_back_02->finalize();
@@ -47,10 +72,10 @@ int main() {
     test_floor->finalize();
     
 
-    world.add(test_back_01);
-    world.add(test_back_02);
-    world.add(test_back_03);
-    world.add(test_floor);
+    //world.add(test_back_01);
+    //world.add(test_back_02);
+    //world.add(test_back_03);
+    //world.add(test_floor);
 
 
     //world.add(make_shared<sphere>(point3(-1.0, 0.0, -1.0), 0.5, material_left));
@@ -66,10 +91,17 @@ int main() {
     camera cam;
     
     cam.vfov = 90;
-    //cam.center = point3(-2, 2, 1);
+    
     cam.center = point3(0);
+
+    //cam.center = point3(0, 0.1, -1.3);
+    //cam.lookat = point3(0, 0, -2);
+
+    cam.center = point3(-0.5, 0, 0);
+    cam.lookat = point3(0);
+
     cam.defocus_angle = 0;
-    cam.focus_distance = length(point3(0) - point3(0, 0, -1));
+    cam.focus_distance = length(point3(0, 1, 0) - point3(0, 0, -2));
 
     
     renderer rend;

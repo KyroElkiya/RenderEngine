@@ -229,3 +229,9 @@ inline vec3 refract(const vec3 &uv, const vec3 &n, double etai_over_etat) {
     return r_out_perp + r_out_parallel;
 }
 
+inline void fix_bbox_degenerate(vec3& max_bbox, vec3& min_bbox) {
+    const double EPS = 1e-4;
+    if (fabs(max_bbox.x - min_bbox.x) < EPS) { max_bbox.x += EPS; min_bbox.x -= EPS; }
+    if (fabs(max_bbox.y - min_bbox.y) < EPS) { max_bbox.y += EPS; min_bbox.y -= EPS; }
+    if (fabs(max_bbox.z - min_bbox.z) < EPS) { max_bbox.z += EPS; min_bbox.z -= EPS; }
+}

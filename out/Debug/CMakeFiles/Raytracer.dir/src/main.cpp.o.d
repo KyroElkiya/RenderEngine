@@ -186,7 +186,23 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: \
  /usr/include/c++/15.2.1/bits/stl_vector.h \
  /usr/include/c++/15.2.1/bits/stl_bvector.h \
  /usr/include/c++/15.2.1/bits/vector.tcc /usr/include/c++/15.2.1/array \
- /usr/include/c++/15.2.1/compare /usr/include/c++/15.2.1/cmath \
+ /usr/include/c++/15.2.1/compare /usr/include/c++/15.2.1/memory \
+ /usr/include/c++/15.2.1/bits/stl_tempbuf.h \
+ /usr/include/c++/15.2.1/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/15.2.1/bits/align.h \
+ /usr/include/c++/15.2.1/bits/unique_ptr.h \
+ /usr/include/c++/15.2.1/bits/shared_ptr.h \
+ /usr/include/c++/15.2.1/bits/shared_ptr_base.h \
+ /usr/include/c++/15.2.1/bits/allocated_ptr.h \
+ /usr/include/c++/15.2.1/ext/concurrence.h \
+ /usr/include/c++/15.2.1/bits/shared_ptr_atomic.h \
+ /usr/include/c++/15.2.1/bits/atomic_base.h \
+ /usr/include/c++/15.2.1/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/15.2.1/backward/auto_ptr.h \
+ /usr/include/c++/15.2.1/pstl/glue_memory_defs.h \
+ /usr/include/c++/15.2.1/pstl/execution_defs.h \
+ /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/../core/interaction/../math/../random.h \
+ /usr/include/c++/15.2.1/random /usr/include/c++/15.2.1/cmath \
  /usr/include/math.h /usr/include/bits/math-vector.h \
  /usr/include/bits/libm-simd-decl-stubs.h \
  /usr/include/bits/flt-eval-method.h /usr/include/bits/fp-logb.h \
@@ -206,23 +222,7 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: \
  /usr/include/c++/15.2.1/tr1/poly_hermite.tcc \
  /usr/include/c++/15.2.1/tr1/poly_laguerre.tcc \
  /usr/include/c++/15.2.1/tr1/riemann_zeta.tcc \
- /usr/include/c++/15.2.1/memory \
- /usr/include/c++/15.2.1/bits/stl_tempbuf.h \
- /usr/include/c++/15.2.1/bits/stl_raw_storage_iter.h \
- /usr/include/c++/15.2.1/bits/align.h \
- /usr/include/c++/15.2.1/bits/unique_ptr.h \
- /usr/include/c++/15.2.1/bits/shared_ptr.h \
- /usr/include/c++/15.2.1/bits/shared_ptr_base.h \
- /usr/include/c++/15.2.1/bits/allocated_ptr.h \
- /usr/include/c++/15.2.1/ext/concurrence.h \
- /usr/include/c++/15.2.1/bits/shared_ptr_atomic.h \
- /usr/include/c++/15.2.1/bits/atomic_base.h \
- /usr/include/c++/15.2.1/bits/atomic_lockfree_defines.h \
- /usr/include/c++/15.2.1/backward/auto_ptr.h \
- /usr/include/c++/15.2.1/pstl/glue_memory_defs.h \
- /usr/include/c++/15.2.1/pstl/execution_defs.h \
- /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/../core/interaction/../math/../random.h \
- /usr/include/c++/15.2.1/random /usr/include/c++/15.2.1/bits/random.h \
+ /usr/include/c++/15.2.1/bits/random.h \
  /usr/include/c++/15.2.1/bits/uniform_int_dist.h \
  /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/opt_random.h \
  /usr/include/c++/15.2.1/bits/random.tcc /usr/include/c++/15.2.1/numeric \
@@ -250,6 +250,7 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: \
  /usr/include/c++/15.2.1/condition_variable \
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/render/../material/material.h \
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/render/../material/../core/color.h \
+ /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/render/../material/../core/../debug/utils.h \
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/render/../io/ppm_exporter.cpp \
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/render/../io/ppm_exporter.h \
  /usr/include/c++/15.2.1/fstream /usr/include/c++/15.2.1/bits/codecvt.h \
@@ -261,6 +262,8 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: \
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/mesh.h \
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/../core/math/ivec3.h \
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/../core/math/vec2.h \
+ /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/tri.h \
+ /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/triPrim.h \
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/loader/objLoader.h \
  /usr/include/c++/15.2.1/sstream /usr/include/c++/15.2.1/bits/sstream.tcc \
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/lambertian.cpp \

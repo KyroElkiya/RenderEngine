@@ -47,6 +47,8 @@ public:
                         for (int sample = 0; sample < samples_per_pixel; sample++) {
                             ray r = get_ray(i, j);
                             pixel_color += ray_color(r, max_depth, world);
+                            if (!std::isfinite(pixel_color.x) || !std::isfinite(pixel_color.y) || !std::isfinite(pixel_color.z))
+                                std::cout << "Pixel Color NaN: " << i << " " << j << " " << pixel_color.x << " " << pixel_color.y << " " << pixel_color.z << std::endl;
                             //pixel_color = normals_ray_color(r, world);
                         }
                         framebuffer[j][i] = pixel_sample_scale * pixel_color;
@@ -122,6 +124,8 @@ private:
         auto ray_origin = (defocus_angle <= 0) ? camera_center : defocus_disk_sample();
         auto ray_dir = normalize(pixel_sample - ray_origin);
 
+        if (length2(ray_dir) < 1e-8) ray_dir = vec3(0, 0, -1);
+
         return ray(ray_origin, ray_dir);
     }
 
@@ -147,15 +151,18 @@ private:
 
     color ray_color(ray &r, int depth, const sceneObject &world) {
         if (depth <= 0) 
-            return color(0.0, 0.0, 0.0);
+            return color(0, 0, 0);
 
         rayHitInfo ray_hit_info;
         if(world.intersect(r, interval(0.001, infinity), ray_hit_info)) {
             ray scattered;
             color attenuation;
 
-            if (ray_hit_info.mat->scatter(r, ray_hit_info, attenuation, scattered))
-                return attenuation * ray_color(scattered, depth-1, world);
+            if (ray_hit_info.mat->scatter(r, ray_hit_info, attenuation, scattered)) {
+                //nan_vec3(ray_hit_info.N, "Ray Hit Normal");
+                //nan_vec3(scattered.direction(), "Scattered Direction");
+                return attenuation * ray_color(scattered, depth-1, world); 
+            }
             return color(0.0, 0.0, 0.0);
         }
     vec3 n_dir = normalize(r.direction());

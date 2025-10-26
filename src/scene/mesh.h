@@ -7,23 +7,15 @@
 #include "../core/utils.h"
 #include "../core/math/ivec3.h"
 #include "../core/math/vec2.h"
-
-
-struct tri {
-    ivec3 vert_indices = ivec3(-1);
-    ivec3 uv_indices = ivec3(-1);
-    ivec3 norm_indices = ivec3(-1);
-    bool has_uvs = false;
-    bool has_vtx_norms = false;
-};
+#include "tri.h"
+#include "bvh/bvh.h"
+#include "triPrim.h"
 
 
 class mesh : public sceneObject {
 public:
 
-    mesh(shared_ptr<material> mat) : mat(mat) {}
-
-    aabb bounding_box() const override { return bbox; }
+    mesh(std::shared_ptr<material> mat) : mat(mat) {}
 
     void addVertex   (const vec3 &v)       { vertices.push_back(v); }
     void addTriangle (const tri &triangle) { faces.push_back(triangle); }            
@@ -36,94 +28,46 @@ public:
     const std::vector<vec2>&  getUVs()      const { return uvs; } 
 
     bool intersect(const ray &r, interval ray_t, rayHitInfo &ray_hit_info) const override {
-        
-        float closestT = std::numeric_limits<double>::max();
-        bool intersected = false;
- 
-        for (const auto& triIndex : faces) {
-            
-            // TODO: Build in safeguard for if the below attributes do not exist. <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        if (!internal_bvh) return false;
+        return internal_bvh->intersect(r, ray_t, ray_hit_info);
+    }
 
-            const vec3& v0 = vertices[triIndex.vert_indices.x];
-            const vec3& v1 = vertices[triIndex.vert_indices.y];
-            const vec3& v2 = vertices[triIndex.vert_indices.z];
-            
-            if (triIndex.has_uvs) {
-                const vec2& uv0 = uvs[triIndex.uv_indices.x];
-                const vec2& uv1 = uvs[triIndex.uv_indices.y];
-                const vec2& uv2 = uvs[triIndex.uv_indices.z];
-            }
-
-            vec3 edge0 = v1 - v0;
-            vec3 edge1 = v2 - v0;
-
-            vec3 dir = normalize(r.direction()); 
-            vec3 p = cross(dir, edge1);
-            double det = dot(edge0, p);
-        
-            if (det < EPSILON)
-                continue;
-
-            double inv_det = 1/det;
-
-            vec3 t = r.origin() - v0;
-            double u = dot(t, p) * inv_det;
-        
-            if (u < 0 || u > 1)
-                continue;
-
-            vec3 q = cross(t, edge0);
-            double v = dot(dir, q) * inv_det;
-        
-            if (v < 0 || u + v > 1)
-                continue;
+void finalize(int max_depth = 32) {
+    if (vertices.empty() || faces.empty()) return;
     
-            double dist = dot(edge1, q) * inv_det;
+    std::vector<std::shared_ptr<sceneObject>> triangles;
+    triangles.reserve(faces.size());
 
-            if (dist < 0)
-                continue;
+    for (const auto &triIndex: faces) {
+        const vec3& v0 = vertices[triIndex.vert_indices.x];
+        const vec3& v1 = vertices[triIndex.vert_indices.y];
+        const vec3& v2 = vertices[triIndex.vert_indices.z];
 
-            closestT = dist;
-            ray_hit_info.t = dist;
-            ray_hit_info.P = r.at(dist);
-            
-            if (triIndex.has_vtx_norms) {
-                const vec3& n0 = vertexNormals[triIndex.norm_indices.x];
-                const vec3& n1 = vertexNormals[triIndex.norm_indices.y];
-                const vec3& n2 = vertexNormals[triIndex.norm_indices.z];
-
-                ray_hit_info.N = normalize(n0 * (1 - u - v) + n1 * u + n2 * v);
-            } else {
-                ray_hit_info.N = normalize(cross(edge0, edge1));
-            }
-            ray_hit_info.set_face_normal(r, ray_hit_info.N);
-            ray_hit_info.mat = mat;
-
-            intersected = true;
+        const vec3 *n0 = nullptr, *n1 = nullptr, *n2 = nullptr;
+        if (triIndex.has_vtx_norms && !vertexNormals.empty()) {
+            n0 = &vertexNormals[triIndex.norm_indices.x];
+            n1 = &vertexNormals[triIndex.norm_indices.y];
+            n2 = &vertexNormals[triIndex.norm_indices.z];
         }
-        return intersected;
+    triangles.push_back(std::make_shared<triPrim>(v0, v1, v2, mat, n0, n1, n2));
     }
 
-void finalize() {
-    if (vertices.empty()) return;
+    // Build internal bvh
+    internal_bvh = std::make_shared<bvh_node>(triangles, 0, triangles.size(), 0, max_depth);
 
-    point3 min = vertices[0];
-    point3 max = vertices[0];
+    bbox = internal_bvh->bounding_box();
 
-    for (const auto& v : vertices) {
-        min = vec3(fmin(min.x, v.x), fmin(min.y, v.y), fmin(min.z, v.z));
-        max = vec3(fmax(max.x, v.x), fmax(max.y, v.y), fmax(max.z, v.z));
-    }
-
-    bbox = aabb(min, max);
 }
 
-private:
+    aabb bounding_box() const override { return bbox; }
+
+    private:
     std::vector<vec3> vertices;
     std::vector<vec3> vertexNormals;
     std::vector<vec2> uvs;
     std::vector<tri> faces;
-    shared_ptr<material> mat;
+    std::shared_ptr<material> mat;
+    std::shared_ptr<bvh_node> internal_bvh;
     aabb bbox;
 
 };

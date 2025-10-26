@@ -20,10 +20,25 @@ public:
         z = (a.z <= b.z) ? interval(a.z, b.z) : interval(b.z, a.z);   
     }
 
-    aabb(const aabb &box0, const aabb &box1) {
-        x = interval(box0.x, box1.x);
-        y = interval(box0.y, box1.y);
-        z = interval(box0.z, box1.z);
+    //aabb(const aabb &box0, const aabb &box1) {
+    //    x = interval(box0.x, box1.x);
+    //    y = interval(box0.y, box1.y);
+    //   z = interval(box0.z, box1.z);
+    //}
+
+    aabb(const aabb& box0, const aabb& box1) {
+        x = interval(
+            std::min(box0.x.min, box1.x.min),
+            std::max(box0.x.max, box1.x.max)
+        );
+        y = interval(
+            std::min(box0.y.min, box1.y.min),
+            std::max(box0.y.max, box1.y.max)
+        );
+        z = interval(
+            std::min(box0.z.min, box1.z.min),
+            std::max(box0.z.max, box1.z.max)
+        );
     }
 
     const interval& axis_interval(int n) const {
@@ -38,18 +53,16 @@ public:
 
         for (int axis = 0; axis < 3; axis++) {
             const interval &ax = axis_interval(axis);
-            const double adinv = 1.0 / ray_dir[axis];
+            const double adinv = (std::abs(ray_dir[axis]) > 1e-8) ? 1.0 / ray_dir[axis]: std::numeric_limits<double>::infinity();
 
             auto t0 = (ax.min - ray_orig[axis]) * adinv;
             auto t1 = (ax.max - ray_orig[axis]) * adinv;
+            
+            if (adinv < 0.0)
+                std::swap(t0, t1);
 
-            if (t0 < t1) {
-                if (t0 > ray_t.min) ray_t.min = t0;
-                if (t0 < ray_t.max) ray_t.max = t1;
-            } else {
-                if (t1 > ray_t.min) ray_t.min = t1;
-                if (t1 < ray_t.max) ray_t.max = t0;
-            }
+            ray_t.min = std::max(t0, ray_t.min);
+            ray_t.max = std::min(t1, ray_t.max);
 
             if (ray_t.max <= ray_t.min)
                 return false;

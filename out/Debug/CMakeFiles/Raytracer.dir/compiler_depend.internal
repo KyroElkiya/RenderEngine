@@ -11,6 +11,7 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/threadpool.h
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/ppm_exporter.cpp
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/ppm_exporter.h
+ /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/debug/utils.h
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/color.h
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/material.h
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/render/renderer.h
@@ -27,6 +28,8 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/mesh.h
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/sceneObjects.h
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/sphere.h
+ /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/tri.h
+ /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/triPrim.h
  /usr/include/alloca.h
  /usr/include/asm-generic/bitsperlong.h
  /usr/include/asm-generic/errno-base.h

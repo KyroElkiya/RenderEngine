@@ -54,15 +54,28 @@ public:
 
                     int v_idx = -1, vt_idx = -1, vn_idx = -1;
 
-                    if (std::getline(vss, v_idx_str, '/')) v_idx = std::stoi(v_idx_str) - 1;
+                    if (std::getline(vss, v_idx_str, '/')) v_idx = std::stoi(v_idx_str);
                     
                     if (std::getline(vss, vt_idx_str, '/')) {
-                        if (!vt_idx_str.empty()) vt_idx = std::stoi(vt_idx_str) - 1;
+                        if (!vt_idx_str.empty()) vt_idx = std::stoi(vt_idx_str);
                     }
                     
                     if (std::getline(vss, vn_idx_str, '/')) {
-                        if (!vn_idx_str.empty()) vn_idx = std::stoi(vn_idx_str) - 1;
+                        if (!vn_idx_str.empty()) vn_idx = std::stoi(vn_idx_str);
                     }
+
+                    int vertex_count = out_mesh->getVertices().size();
+                    int uv_count     = out_mesh->getUVs().size();
+                    int normal_count = out_mesh->getNormals().size();
+
+                    if (v_idx < 0) v_idx = vertex_count + v_idx;
+                    else v_idx -= 1;
+                    
+                    if (vt_idx < 0) vt_idx = uv_count + vt_idx;
+                    else vt_idx -= 1;
+                    
+                    if (vn_idx < 0) vn_idx = normal_count + vn_idx;
+                    else vn_idx -= 1;
 
                     t.vert_indices[i] = v_idx;
                     t.uv_indices[i] = vt_idx;

@@ -6,6 +6,7 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/camera/camera.h
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/loader/objLoader.h
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/dielectric.cpp
+ /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/emitter.cpp
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/lambertian.cpp
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/metallic.cpp
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/threadpool.h

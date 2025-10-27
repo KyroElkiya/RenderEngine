@@ -268,4 +268,5 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: \
  /usr/include/c++/15.2.1/sstream /usr/include/c++/15.2.1/bits/sstream.tcc \
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/lambertian.cpp \
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/metallic.cpp \
- /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/dielectric.cpp
+ /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/dielectric.cpp \
+ /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/emitter.cpp

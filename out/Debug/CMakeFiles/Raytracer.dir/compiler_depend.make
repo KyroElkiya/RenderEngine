@@ -5,6 +5,7 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: /home/Andrew/Documents/University/Showr
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/camera/camera.h \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/loader/objLoader.h \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/dielectric.cpp \
+  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/emitter.cpp \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/lambertian.cpp \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/metallic.cpp \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/threadpool.h \
@@ -466,8 +467,6 @@ Raytracer: /usr/lib/Scrt1.o \
 
 /usr/include/c++/15.2.1/string_view:
 
-/usr/include/c++/15.2.1/string:
-
 /usr/include/c++/15.2.1/streambuf:
 
 /usr/include/c++/15.2.1/stdexcept:
@@ -608,6 +607,12 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 
 /usr/include/bits/long-double.h:
 
+/usr/include/bits/locale.h:
+
+/usr/include/c++/15.2.1/string:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/emitter.cpp:
+
 /usr/include/bits/types/struct_tm.h:
 
 /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/triPrim.h:
@@ -688,10 +693,6 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 
 /usr/include/c++/15.2.1/bits/stl_iterator.h:
 
-/usr/include/bits/time64.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/camera/camera.h:
-
 /usr/include/features.h:
 
 /usr/include/bits/sched.h:
@@ -704,23 +705,19 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 
 /usr/include/bits/ss_flags.h:
 
-/usr/include/bits/time.h:
-
-/usr/include/asm/posix_types.h:
-
 /usr/include/c++/15.2.1/bits/locale_facets.tcc:
 
 /usr/include/asm/posix_types_64.h:
+
+/usr/include/bits/time.h:
+
+/usr/include/asm/posix_types.h:
 
 /usr/include/bits/byteswap.h:
 
 /usr/include/c++/15.2.1/tr1/special_function_util.h:
 
 /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/main.cpp:
-
-/usr/include/bits/sigthread.h:
-
-/usr/include/c++/15.2.1/bits/ostream.h:
 
 /usr/include/bits/floatn.h:
 
@@ -740,6 +737,10 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 
 /usr/include/bits/atomic_wide_counter.h:
 
+/usr/include/bits/time64.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/camera/camera.h:
+
 /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/math/vec3.h:
 
 /usr/include/c++/15.2.1/bits/specfun.h:
@@ -749,6 +750,10 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++allocator.h:
 
 /usr/include/c++/15.2.1/bits/range_access.h:
+
+/usr/include/bits/sigthread.h:
+
+/usr/include/c++/15.2.1/bits/ostream.h:
 
 /usr/include/sys/ucontext.h:
 
@@ -793,8 +798,6 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 /usr/include/bits/mathcalls-helper-functions.h:
 
 /usr/include/c++/15.2.1/bits/charconv.h:
-
-/usr/include/bits/locale.h:
 
 /usr/include/bits/confname.h:
 
@@ -966,6 +969,10 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 
 /usr/include/c++/15.2.1/bits/erase_if.h:
 
+/usr/include/c++/15.2.1/debug/assertions.h:
+
+/usr/include/c++/15.2.1/bits/shared_ptr_base.h:
+
 /usr/include/c++/15.2.1/vector:
 
 /usr/include/c++/15.2.1/bits/exception_defines.h:
@@ -1133,7 +1140,3 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 /usr/include/bits/timex.h:
 
 /usr/include/c++/15.2.1/ctime:
-
-/usr/include/c++/15.2.1/bits/shared_ptr_base.h:
-
-/usr/include/c++/15.2.1/debug/assertions.h:

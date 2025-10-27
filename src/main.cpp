@@ -9,6 +9,7 @@
 #include "material/lambertian.cpp"
 #include "material/metallic.cpp"
 #include "material/dielectric.cpp"
+#include "material/emitter.cpp"
 
 #include "debug/utils.h"
 
@@ -22,21 +23,49 @@ int main() {
 
     auto material_ground = make_shared<lambertian>(color(0.0, 0.5, 0.8));
     auto material_center = make_shared<lambertian>(color(0.1, 0.7, 0.2));
-    auto material_left = make_shared<dieletric>(1.5);
-    auto material_right = make_shared<metal>(color(0.9, 0.7, 0.0), 0.0);
-    //auto material_chrome = make_shared<metal>(color(1, 1, 1), 0.0);
+    auto material_left   = make_shared<dieletric>(1.5);
+    auto material_right  = make_shared<metal>(color(0.9, 0.7, 0.0), 0.0);
+    auto material_chrome = make_shared<metal>(color(1, 1, 1), 0.0);
 
-    print("Creating Shared Pointer");
-    shared_ptr<mesh> test_dragon = std::make_shared<mesh>(material_center);
+    auto material_dragon = make_shared<metal>(color(0.64, 0.34, 0.31), 0);
+
+    auto material_emit = make_shared<emitter>(color(0.98, 0.98, 0.98), 50);
+    world.add(make_shared<sphere>(point3(0, 2.5, 0), 0.5, material_emit));
+
+    //print("Creating Shared Pointer");
+    //shared_ptr<mesh> test_dragon = std::make_shared<mesh>(material_dragon);
     
-    print("Loading Mesh: Dragon");
-    objLoader::load("/home/Andrew/Downloads/dragon.obj", test_dragon);
+    //print("Loading Mesh: Dragon");
+    //objLoader::load("/home/Andrew/Downloads/dragon.obj", test_dragon);
 
-    print("Finalizing Mesh: Dragon");
-    test_dragon->finalize();
+    //print("Finalizing Mesh: Dragon");
+    //test_dragon->finalize();
 
-    print("Adding Mesh: Dragon to world");
-    world.add(test_dragon);
+    //print("Adding Mesh: Dragon to world");
+    //world.add(test_dragon);
+
+    shared_ptr<mesh> dragon_floor = std::make_shared<mesh>(material_ground);
+    objLoader::load("/home/Andrew/Downloads/floor_two_dragons.obj", dragon_floor);
+    dragon_floor->finalize();
+    world.add(dragon_floor);
+
+    print("Creating Shared Pointers");
+    shared_ptr<mesh> fg_dragon = std::make_shared<mesh>(material_center);
+    shared_ptr<mesh> bg_dragon = std::make_shared<mesh>(material_center);
+
+    
+    print("Loading Dragon Meshes");
+    objLoader::load("/home/Andrew/Downloads/dragon_high_fg.obj", fg_dragon);
+    objLoader::load("/home/Andrew/Downloads/dragon_high_bg.obj", bg_dragon);
+
+    
+    print("Finalizing Dragon Meshes");
+    fg_dragon->finalize();
+    bg_dragon->finalize();
+
+    print("Adding Dragons to World");
+    world.add(fg_dragon);
+    world.add(bg_dragon);
 
 
     shared_ptr<mesh> test_back_01 = std::make_shared<mesh>(material_center);
@@ -90,26 +119,35 @@ int main() {
 
     camera cam;
     
-    cam.vfov = 90;
+    cam.vfov = 30;
     
     cam.center = point3(0);
 
     //cam.center = point3(0, 0.1, -1.3);
     //cam.lookat = point3(0, 0, -2);
 
-    cam.center = point3(-0.5, 0, 0);
-    cam.lookat = point3(0);
+    //cam.center = point3(-0.5, 0, -0.2);
+    //cam.lookat = point3(0);
+
+    //cam.defocus_angle = 10;
+    //cam.focus_distance = length(point3(-0.5, 0, -0.2) - point3(0, 0, -0.2));
+
+
+    // 2 Dragons
+
+    cam.center = point3(-2, 0.8, -2.3);
+    cam.lookat = point3(-0.85, 0.296, -0.225);
 
     cam.defocus_angle = 0;
-    cam.focus_distance = length(point3(0, 1, 0) - point3(0, 0, -2));
-
+    cam.focus_distance = length(cam.center - cam.lookat);
     
     renderer rend;
 
     rend.aspect_ratio = 16.0/9.0;
     rend.image_width = 1920;
-    rend.samples_per_pixel = 100;
+    rend.samples_per_pixel = 200;
     rend.max_depth = 50;
+    rend.background = color(0.2);
     
     timeFunction("render", [&] {
     rend.render(world, cam);

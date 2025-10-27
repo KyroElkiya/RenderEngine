@@ -8,6 +8,10 @@
 class material {
 public:
     virtual ~material() = default;
+    
+    virtual color emit() const {
+        return color(0);
+    }
 
     virtual bool scatter(const ray &r_in, const rayHitInfo &ray_hit_info, color &attenuation, ray &scattered) const {
         return false;
@@ -26,9 +30,9 @@ public:
         // TODO: impliment specular material habit, add transmission, subsurface and emission <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     }
 private:
-    color albedo;
+    color  albedo;
     double specular;
-    color spec_color;
+    color  spec_color;
     double spec_rough;
 };
 

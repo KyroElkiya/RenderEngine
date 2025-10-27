@@ -15,129 +15,44 @@
 
 using namespace std;
 
-int main() {
+void two_dragons_lambertian() {
     
-    print("working");
     sceneObjects world;
+    
+    auto material_lambert_orange = make_shared<lambertian>(color(0.9, 0.2, 0.05));
+    auto material_lambert_green  = make_shared<lambertian>(color(0.1, 0.7, 0.2));
+    auto material_ground         = make_shared<lambertian>(color(0.02, 0.5, 0.8));
 
-
-    auto material_ground = make_shared<lambertian>(color(0.0, 0.5, 0.8));
-    auto material_center = make_shared<lambertian>(color(0.1, 0.7, 0.2));
-    auto material_left   = make_shared<dieletric>(1.5);
-    auto material_right  = make_shared<metal>(color(0.9, 0.7, 0.0), 0.0);
-    auto material_chrome = make_shared<metal>(color(1, 1, 1), 0.0);
-
-    auto material_dragon = make_shared<metal>(color(0.64, 0.34, 0.31), 0);
-
+    print("Creating Lights");
     auto material_emit = make_shared<emitter>(color(0.98, 0.98, 0.98), 50);
     world.add(make_shared<sphere>(point3(0, 2.5, 0), 0.5, material_emit));
 
-    //print("Creating Shared Pointer");
-    //shared_ptr<mesh> test_dragon = std::make_shared<mesh>(material_dragon);
-    
-    //print("Loading Mesh: Dragon");
-    //objLoader::load("/home/Andrew/Downloads/dragon.obj", test_dragon);
-
-    //print("Finalizing Mesh: Dragon");
-    //test_dragon->finalize();
-
-    //print("Adding Mesh: Dragon to world");
-    //world.add(test_dragon);
-
-    shared_ptr<mesh> dragon_floor = std::make_shared<mesh>(material_ground);
-    objLoader::load("/home/Andrew/Downloads/floor_two_dragons.obj", dragon_floor);
-    dragon_floor->finalize();
-    world.add(dragon_floor);
-
     print("Creating Shared Pointers");
-    shared_ptr<mesh> fg_dragon = std::make_shared<mesh>(material_center);
-    shared_ptr<mesh> bg_dragon = std::make_shared<mesh>(material_center);
-
+    shared_ptr<mesh> fg_dragon    = std::make_shared<mesh>(material_lambert_orange);
+    shared_ptr<mesh> bg_dragon    = std::make_shared<mesh>(material_lambert_green);
+    shared_ptr<mesh> dragon_floor = std::make_shared<mesh>(material_ground);
     
-    print("Loading Dragon Meshes");
-    objLoader::load("/home/Andrew/Downloads/dragon_high_fg.obj", fg_dragon);
-    objLoader::load("/home/Andrew/Downloads/dragon_high_bg.obj", bg_dragon);
-
+    print("Loading Meshes");
+    objLoader::load("/home/Andrew/Documents/University/Showreel/RenderEngine/Scenes/two_dragons/dragon_high_fg.obj", fg_dragon);
+    objLoader::load("/home/Andrew/Documents/University/Showreel/RenderEngine/Scenes/two_dragons/dragon_high_bg.obj", bg_dragon);
+    objLoader::load("/home/Andrew/Documents/University/Showreel/RenderEngine/Scenes/two_dragons/floor_two_dragons.obj", dragon_floor);
     
-    print("Finalizing Dragon Meshes");
+    print("Finalizing Meshes");
     fg_dragon->finalize();
     bg_dragon->finalize();
+    dragon_floor->finalize();
 
-    print("Adding Dragons to World");
+    print("Adding Meshes to World");
     world.add(fg_dragon);
     world.add(bg_dragon);
-
-
-    shared_ptr<mesh> test_back_01 = std::make_shared<mesh>(material_center);
-    shared_ptr<mesh> test_back_02 = std::make_shared<mesh>(material_left);
-    shared_ptr<mesh> test_back_03 = std::make_shared<mesh>(material_right);
-    shared_ptr<mesh> test_floor = std::make_shared<mesh>(material_ground);
-
-
-    objLoader::load("/home/Andrew/Downloads/test_normals.obj", test_back_01);
-    objLoader::load("/home/Andrew/Downloads/test_back_02.obj", test_back_02);
-    objLoader::load("/home/Andrew/Downloads/test_back_03.obj", test_back_03);
-    objLoader::load("/home/Andrew/Downloads/test_floor.obj", test_floor);
-    
-    // Assume mesh_ptr is your std::shared_ptr<mesh> holding the loaded OBJ
-    //std::cout << "Vertices:\n";
-    //for (size_t i = 0; i < test_back_01->getVertices().size(); ++i) {
-    //    const auto& v = test_back_01->getVertices()[i];
-    //    std::cout << "v" << i << ": " << v.x << " " << v.y << " " << v.z << "\n";
-    //}
-
-    //std::cout << "Triangles:\n";
-    //for (size_t i = 0; i < test_back_01->getFaces().size(); ++i) {
-    //    const auto& t = test_back_01->getFaces()[i];
-    //    std::cout << "tri " << i << ": " 
-    //          << t.vert_indices.x << " "
-    //          << t.vert_indices.y << " "
-    //          << t.vert_indices.z << "\n";
-    //}
-
-    test_back_01->finalize();
-    test_back_02->finalize();
-    test_back_03->finalize();
-    test_floor->finalize();
-    
-
-    //world.add(test_back_01);
-    //world.add(test_back_02);
-    //world.add(test_back_03);
-    //world.add(test_floor);
-
-
-    //world.add(make_shared<sphere>(point3(-1.0, 0.0, -1.0), 0.5, material_left));
-    //world.add(make_shared<sphere>(point3(1.0, 0.0, -1.0), 0.5, material_right));
-    //world.add(make_shared<sphere>(point3(0, 0, -1), 0.5, material_center));
-    //world.add(make_shared<sphere>(point3(0, -101.5, -1), 100, material_ground));
-
-    //auto material_bubble = make_shared<dieletric>(1.0/ 1.5);
-    //world.add(make_shared<sphere>(point3(-1.0, 0.0, -1.0), 0.4, material_bubble));
+    world.add(dragon_floor);
 
     world = sceneObjects(make_shared<bvh_node>(world));
 
     camera cam;
-    
     cam.vfov = 30;
-    
-    cam.center = point3(0);
-
-    //cam.center = point3(0, 0.1, -1.3);
-    //cam.lookat = point3(0, 0, -2);
-
-    //cam.center = point3(-0.5, 0, -0.2);
-    //cam.lookat = point3(0);
-
-    //cam.defocus_angle = 10;
-    //cam.focus_distance = length(point3(-0.5, 0, -0.2) - point3(0, 0, -0.2));
-
-
-    // 2 Dragons
-
     cam.center = point3(-2, 0.8, -2.3);
     cam.lookat = point3(-0.85, 0.296, -0.225);
-
     cam.defocus_angle = 0;
     cam.focus_distance = length(cam.center - cam.lookat);
     
@@ -145,15 +60,196 @@ int main() {
 
     rend.aspect_ratio = 16.0/9.0;
     rend.image_width = 1920;
-    rend.samples_per_pixel = 200;
+    rend.samples_per_pixel = 400;
     rend.max_depth = 50;
     rend.background = color(0.2);
+
+    timeFunction("render", [&] {
+    rend.render(world, cam);
+    });
+}
+
+void two_dragons_metallic() {
+    
+    sceneObjects world;
+    
+    auto material_rose_gold = make_shared<metal>(color(0.64, 0.34, 0.31), 0);
+    auto material_chrome    = make_shared<metal>(color(0.98), 0);
+    auto material_ground    = make_shared<lambertian>(color(0.02, 0.5, 0.8));
+
+    print("Creating Lights");
+    auto material_emit = make_shared<emitter>(color(0.98, 0.98, 0.98), 50);
+    world.add(make_shared<sphere>(point3(0, 2.5, 0), 0.5, material_emit));
+
+    print("Creating Shared Pointers");
+    shared_ptr<mesh> fg_dragon    = std::make_shared<mesh>(material_rose_gold);
+    shared_ptr<mesh> bg_dragon    = std::make_shared<mesh>(material_chrome);
+    shared_ptr<mesh> dragon_floor = std::make_shared<mesh>(material_ground);
+    
+    print("Loading Meshes");
+    objLoader::load("/home/Andrew/Documents/University/Showreel/RenderEngine/Scenes/two_dragons/dragon_high_fg.obj", fg_dragon);
+    objLoader::load("/home/Andrew/Documents/University/Showreel/RenderEngine/Scenes/two_dragons/dragon_high_bg.obj", bg_dragon);
+    objLoader::load("/home/Andrew/Documents/University/Showreel/RenderEngine/Scenes/two_dragons/floor_two_dragons.obj", dragon_floor);
+    
+    print("Finalizing Meshes");
+    fg_dragon->finalize();
+    bg_dragon->finalize();
+    dragon_floor->finalize();
+
+    print("Adding Meshes to World");
+    world.add(fg_dragon);
+    world.add(bg_dragon);
+    world.add(dragon_floor);
+
+    world = sceneObjects(make_shared<bvh_node>(world));
+
+    camera cam;
+    cam.vfov = 30;
+    cam.center = point3(-2, 0.8, -2.3);
+    cam.lookat = point3(-0.85, 0.296, -0.225);
+    cam.defocus_angle = 0;
+    cam.focus_distance = length(cam.center - cam.lookat);
+    
+    renderer rend;
+
+    rend.aspect_ratio = 16.0/9.0;
+    rend.image_width = 1920;
+    rend.samples_per_pixel = 400;
+    rend.max_depth = 50;
+    rend.background = color(0);
     
     timeFunction("render", [&] {
     rend.render(world, cam);
     });
+}
 
-    //rend.render(world, cam);
+void platonic_solids() {
+    
+    sceneObjects world;
+    
+    auto material_lambert_blue  = make_shared<lambertian>(color(0.0, 0.5, 0.8));
+    auto material_lambert_green = make_shared<lambertian>(color(0.1, 0.7, 0.2));
+    auto material_glass         = make_shared<dieletric>(1.5);
+    auto material_yellow_metal  = make_shared<metal>(color(0.9, 0.7, 0.0), 0.0);
+ 
+    print("Creating Lights");
+    auto material_emit = make_shared<emitter>(color(0.98, 0.98, 0.98), 50);
+    //world.add(make_shared<sphere>(point3(0, 2.5, 0), 0.5, material_emit));
 
+    print("Creating Shared Pointers");
+    shared_ptr<mesh> center_platonic = std::make_shared<mesh>(material_lambert_green);
+    shared_ptr<mesh> right_platonic  = std::make_shared<mesh>(material_glass);
+    shared_ptr<mesh> left_platonic   = std::make_shared<mesh>(material_yellow_metal);
+    shared_ptr<mesh> groundplane     = std::make_shared<mesh>(material_lambert_blue);
+
+    print("Loading Meshes");
+    objLoader::load("/home/Andrew/Documents/University/Showreel/RenderEngine/Scenes/platonic_solids/center_platonic.obj", center_platonic);
+    objLoader::load("/home/Andrew/Documents/University/Showreel/RenderEngine/Scenes/platonic_solids/right_platonic.obj", right_platonic);
+    objLoader::load("/home/Andrew/Documents/University/Showreel/RenderEngine/Scenes/platonic_solids/left_platonic.obj", left_platonic);
+    objLoader::load("/home/Andrew/Documents/University/Showreel/RenderEngine/Scenes/platonic_solids/groundplane.obj", groundplane);
+    
+    print("Finalizing Meshes");
+    center_platonic->finalize();
+    right_platonic->finalize();
+    left_platonic->finalize();
+    groundplane->finalize();
+
+    print("Adding Meshes to World");
+    world.add(center_platonic);
+    world.add(right_platonic);
+    world.add(left_platonic);
+    world.add(groundplane);
+    
+    world = sceneObjects(make_shared<bvh_node>(world));
+
+    camera cam;
+    cam.vfov = 90;
+    cam.center = point3(0);
+
+    //cam.defocus_angle = 10;
+    //cam.focus_distance = length(point3(0) - point3(0, 0, -1));
+    
+    renderer rend;
+
+    rend.aspect_ratio = 16.0/9.0;
+    rend.image_width = 1920;
+    rend.samples_per_pixel = 10;
+    rend.max_depth = 50;
+    //rend.background = color(0);
+    
+    timeFunction("render", [&] {
+    rend.render(world, cam);
+    });
+}
+
+void cornell_dragon() {
+
+    sceneObjects world;
+
+    auto material_red   = make_shared<lambertian>(color(0.9, 0.2, 0.2));
+    auto material_blue  = make_shared<lambertian>(color(0.2, 0.2, 0.9));
+    auto material_white = make_shared<lambertian>(color(0.8, 0.8, 0.8));
+    auto material_glass = make_shared<dieletric>(1.5);
+    auto material_light = make_shared<emitter>(color(0.8), 5);
+
+    print("Creating Shared Pointers");
+    shared_ptr<mesh> cornell_dragon = std::make_shared<mesh>(material_glass);
+    shared_ptr<mesh> cornell_red = std::make_shared<mesh>(material_red);
+    shared_ptr<mesh> cornell_blue = std::make_shared<mesh>(material_blue);
+    shared_ptr<mesh> cornell_white = std::make_shared<mesh>(material_white);
+    shared_ptr<mesh> cornell_light = std::make_shared<mesh>(material_light);
+    shared_ptr<mesh> cornell_backface = std::make_shared<mesh>(material_white);
+    
+    print("Loading Meshes");
+    objLoader::load("/home/Andrew/Documents/University/Showreel/RenderEngine/Scenes/cornell_dragon/dragon_cornell.obj", cornell_dragon);
+    objLoader::load("/home/Andrew/Documents/University/Showreel/RenderEngine/Scenes/cornell_dragon/cornell_red.obj", cornell_red);
+    objLoader::load("/home/Andrew/Documents/University/Showreel/RenderEngine/Scenes/cornell_dragon/cornell_blue.obj", cornell_blue);
+    objLoader::load("/home/Andrew/Documents/University/Showreel/RenderEngine/Scenes/cornell_dragon/cornell_white.obj", cornell_white);
+    objLoader::load("/home/Andrew/Documents/University/Showreel/RenderEngine/Scenes/cornell_dragon/cornell_light.obj", cornell_light);
+    objLoader::load("/home/Andrew/Documents/University/Showreel/RenderEngine/Scenes/cornell_dragon/cornell_backface.obj", cornell_backface);
+
+    print("Finalizing Meshes");
+    cornell_dragon->finalize();
+    cornell_red->finalize();
+    cornell_blue->finalize();
+    cornell_white->finalize();
+    cornell_light->finalize();
+    cornell_backface->finalize();
+
+    print("Adding Meshes to World");
+    world.add(cornell_dragon);
+    world.add(cornell_red);
+    world.add(cornell_blue);
+    world.add(cornell_white);
+    //world.add(cornell_backface);
+    world.add(cornell_light);
+
+    world = sceneObjects(make_shared<bvh_node>(world));
+
+    camera cam;
+    cam.vfov = 30;
+    cam.center = point3(0, 0, -2);
+
+    renderer rend;
+
+    rend.aspect_ratio = 16.0/9.0;
+    rend.image_width = 1920;
+    rend.samples_per_pixel = 400;
+    rend.max_depth = 50;
+    rend.background = color(0);
+    
+    timeFunction("render", [&] {
+    rend.render(world, cam);
+    });
+}
+
+
+int main() {
+    switch(3) {
+        case 0: platonic_solids();  break;
+        case 1: two_dragons_metallic(); break;
+        case 2: two_dragons_lambertian(); break;
+        case 3: cornell_dragon(); break;
+    }
 }
 

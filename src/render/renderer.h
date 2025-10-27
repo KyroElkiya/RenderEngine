@@ -47,7 +47,7 @@ public:
                         color pixel_color(0);
                         for (int sample = 0; sample < samples_per_pixel; sample++) {
                             ray r = get_ray(i, j);
-                            pixel_color += new_ray_color(r, max_depth, world);
+                            pixel_color += ray_color(r, max_depth, world);
                             if (!std::isfinite(pixel_color.x) || !std::isfinite(pixel_color.y) || !std::isfinite(pixel_color.z))
                                 std::cout << "Pixel Color NaN: " << i << " " << j << " " << pixel_color.x << " " << pixel_color.y << " " << pixel_color.z << std::endl;
                             //pixel_color = normals_ray_color(r, world);
@@ -150,7 +150,7 @@ private:
         return (1.0 - a) * color(1.0, 1.0, 1.0) + a * color(0.5, 0.7, 1.0);
     }
 
-    color ray_color(ray &r, int depth, const sceneObject &world) {
+    color no_lights_ray_color(ray &r, int depth, const sceneObject &world) {
         if (depth <= 0) 
             return color(0, 0, 0);
 
@@ -162,7 +162,7 @@ private:
             if (ray_hit_info.mat->scatter(r, ray_hit_info, attenuation, scattered)) {
                 //nan_vec3(ray_hit_info.N, "Ray Hit Normal");
                 //nan_vec3(scattered.direction(), "Scattered Direction");
-                return attenuation * ray_color(scattered, depth-1, world); 
+                return attenuation * no_lights_ray_color(scattered, depth-1, world); 
             }
             return color(0.0, 0.0, 0.0);
         }
@@ -173,7 +173,7 @@ private:
     return color(0);
     }
     
-    color new_ray_color(ray &r, int depth, const sceneObject &world) {
+    color ray_color(ray &r, int depth, const sceneObject &world) {
         if (depth <= 0)
             return color(0);
 
@@ -190,7 +190,7 @@ private:
         if (!ray_hit_info.mat->scatter(r, ray_hit_info, attenuation, scattered))
             return emitted;
 
-        return emitted + (attenuation * new_ray_color(scattered, depth-1, world));
+        return emitted + (attenuation * ray_color(scattered, depth-1, world));
 
     }
 

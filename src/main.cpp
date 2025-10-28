@@ -243,13 +243,46 @@ void cornell_dragon() {
     });
 }
 
+void nessy() {
+    
+    sceneObjects world;
+
+    auto material_matte = make_shared<lambertian>(color(.2, .4, .9));
+    shared_ptr<mesh>nessy = make_shared<mesh>(material_matte);
+    objLoader::load("/home/Andrew/Downloads/nessy.obj", nessy);
+    nessy->finalize();
+    world.add(nessy);
+
+    auto material_blue = make_shared<emitter>(color(0.7, 0.7, 0.9), 30);
+    auto material_red  = make_shared<emitter>(color(0.9, 0.2, 0.2), 40);
+    world.add(make_shared<sphere>(point3(1, 1, 2.5), 0.3, material_blue));
+    world.add(make_shared<sphere>(point3(0, 5, -3), 1, material_red));
+
+    camera cam;
+    cam.vfov = 30;
+    cam.center = point3(-1, 1, 4);
+    cam.lookat = point3(0, 0.5, 0);
+    
+    renderer rend;
+
+    rend.aspect_ratio = 16.0/9.0;
+    rend.image_width = 1920;
+    rend.samples_per_pixel = 400;
+    rend.max_depth = 50;
+    rend.background = color(0);
+    
+    timeFunction("render", [&] {
+    rend.render(world, cam);
+    });
+}
 
 int main() {
-    switch(3) {
+    switch(4) {
         case 0: platonic_solids();  break;
         case 1: two_dragons_metallic(); break;
         case 2: two_dragons_lambertian(); break;
         case 3: cornell_dragon(); break;
+        case 4: nessy(); break;
     }
 }
 

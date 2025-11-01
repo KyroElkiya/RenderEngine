@@ -228,13 +228,13 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: \
  /usr/include/c++/15.2.1/bits/random.tcc /usr/include/c++/15.2.1/numeric \
  /usr/include/c++/15.2.1/bits/stl_numeric.h \
  /usr/include/c++/15.2.1/pstl/glue_numeric_defs.h \
- /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/../core/interaction/../math/interval.h \
- /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/../core/interaction/../ray.h \
  /usr/include/c++/15.2.1/algorithm \
  /usr/include/c++/15.2.1/bits/stl_algo.h \
  /usr/include/c++/15.2.1/bits/algorithmfwd.h \
  /usr/include/c++/15.2.1/bits/stl_heap.h \
  /usr/include/c++/15.2.1/pstl/glue_algorithm_defs.h \
+ /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/../core/interaction/../math/interval.h \
+ /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/../core/interaction/../ray.h \
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/sphere.h \
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/camera/camera.h \
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/render/renderer.h \

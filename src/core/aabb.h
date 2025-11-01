@@ -47,6 +47,23 @@ public:
         return x;
     }
     
+    int longest_axis() const {
+        double dx = x.max - x.min;
+        double dy = y.max - y.min;
+        double dz = z.max - z.min;
+
+        if (dx > dy && dx > dz)
+            return 0;
+        else if (dy > dz)
+            return 1;
+        else
+            return 2;
+    }
+
+    point3 centroid() const {
+        return point3(0.5 * (x.min + x.max), 0.5 * (y.min + y.max), 0.5 * (z.min + z.max));
+    }
+
     bool intersect(const ray &r, interval ray_t) const {
         const point3 &ray_orig = r.origin();
         const vec3   &ray_dir  = r.direction();

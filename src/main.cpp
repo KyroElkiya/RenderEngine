@@ -189,7 +189,7 @@ void cornell_dragon() {
     auto material_red   = make_shared<lambertian>(color(0.9, 0.2, 0.2));
     auto material_blue  = make_shared<lambertian>(color(0.2, 0.2, 0.9));
     auto material_white = make_shared<lambertian>(color(0.8, 0.8, 0.8));
-    auto material_glass = make_shared<dieletric>(1.5);
+    auto material_glass = make_shared<dieletric>(1.5, color(0.2, 0.8, 0.3));
     auto material_light = make_shared<emitter>(color(0.8), 5);
 
     print("Creating Shared Pointers");
@@ -234,7 +234,7 @@ void cornell_dragon() {
 
     rend.aspect_ratio = 16.0/9.0;
     rend.image_width = 1920;
-    rend.samples_per_pixel = 400;
+    rend.samples_per_pixel = 100;
     rend.max_depth = 50;
     rend.background = color(0);
     
@@ -248,15 +248,16 @@ void nessy() {
     sceneObjects world;
 
     auto material_matte = make_shared<lambertian>(color(.2, .4, .9));
-    shared_ptr<mesh>nessy = make_shared<mesh>(material_matte);
+    auto material_glass = make_shared<dieletric>(1.5, color(0.2, 0.8, 0.3), 0.9);
+    shared_ptr<mesh>nessy = make_shared<mesh>(material_glass);
     objLoader::load("/home/Andrew/Downloads/nessy.obj", nessy);
     nessy->finalize();
     world.add(nessy);
 
     auto material_blue = make_shared<emitter>(color(0.7, 0.7, 0.9), 30);
     auto material_red  = make_shared<emitter>(color(0.9, 0.2, 0.2), 40);
-    world.add(make_shared<sphere>(point3(1, 1, 2.5), 0.3, material_blue));
-    world.add(make_shared<sphere>(point3(0, 5, -3), 1, material_red));
+    //world.add(make_shared<sphere>(point3(1, 1, 2.5), 0.3, material_blue));
+    //world.add(make_shared<sphere>(point3(0, 5, -3), 1, material_red));
 
     camera cam;
     cam.vfov = 30;
@@ -267,9 +268,9 @@ void nessy() {
 
     rend.aspect_ratio = 16.0/9.0;
     rend.image_width = 1920;
-    rend.samples_per_pixel = 400;
+    rend.samples_per_pixel = 100;
     rend.max_depth = 50;
-    rend.background = color(0);
+    //rend.background = color(0);
     
     timeFunction("render", [&] {
     rend.render(world, cam);
@@ -277,7 +278,7 @@ void nessy() {
 }
 
 int main() {
-    switch(4) {
+    switch(3) {
         case 0: platonic_solids();  break;
         case 1: two_dragons_metallic(); break;
         case 2: two_dragons_lambertian(); break;

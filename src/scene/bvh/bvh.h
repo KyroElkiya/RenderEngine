@@ -28,8 +28,15 @@ public:
                 bbox = aabb(bbox, leaf_objects[i]->bounding_box());
             return;
         }
+    
+    aabb centroid_bbox;
+    for (size_t i = start; i < end; i++) {
+        aabb box = objects[i]->bounding_box();
+        point3 centroid = box.centroid();
+        centroid_bbox = aabb(centroid_bbox, aabb(centroid, centroid));
+    }
 
-    int axis = random_int(0, 2);
+    int axis = centroid_bbox.longest_axis();
     auto comparator = (axis == 0) ? box_x_compare : (axis == 1) ? box_y_compare : box_z_compare;
 
     if (object_span == 1) {

@@ -28,6 +28,13 @@ inline color is_nan(vec3& col) {
     return color(std::isfinite(col.x) ? col.x : 1, std::isfinite(col.y) ? col.y : 0, std::isfinite(col.z) ? col.z : 1);
 }
 
+inline color return_srgb(vec3 col) {
+    col = linear_to_srgb(col);
+    col = is_nan(col);
+    nan_vec3(col, "Color.h Pixel Color");
+    return col;
+}
+
 inline void write_color(std::ostream& out, const color &pixel_color) {
 
     //auto r = pixel_color.x;

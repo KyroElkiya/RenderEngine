@@ -9,6 +9,8 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: /home/Andrew/Documents/University/Showr
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/lambertian.cpp \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/metallic.cpp \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/threadpool.h \
+  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/exr_exporter.cpp \
+  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/pixel.h \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/ppm_exporter.cpp \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/ppm_exporter.h \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/debug/utils.h \
@@ -30,6 +32,41 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: /home/Andrew/Documents/University/Showr
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/sphere.h \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/tri.h \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/triPrim.h \
+  /usr/include/Imath/ImathBox.h \
+  /usr/include/Imath/ImathConfig.h \
+  /usr/include/Imath/ImathExport.h \
+  /usr/include/Imath/ImathMath.h \
+  /usr/include/Imath/ImathNamespace.h \
+  /usr/include/Imath/ImathPlatform.h \
+  /usr/include/Imath/ImathTypeTraits.h \
+  /usr/include/Imath/ImathVec.h \
+  /usr/include/Imath/half.h \
+  /usr/include/OpenEXR/IexBaseExc.h \
+  /usr/include/OpenEXR/IexConfig.h \
+  /usr/include/OpenEXR/IexExport.h \
+  /usr/include/OpenEXR/IexMathExc.h \
+  /usr/include/OpenEXR/IexNamespace.h \
+  /usr/include/OpenEXR/ImfArray.h \
+  /usr/include/OpenEXR/ImfAttribute.h \
+  /usr/include/OpenEXR/ImfChannelList.h \
+  /usr/include/OpenEXR/ImfCompression.h \
+  /usr/include/OpenEXR/ImfExport.h \
+  /usr/include/OpenEXR/ImfForward.h \
+  /usr/include/OpenEXR/ImfFrameBuffer.h \
+  /usr/include/OpenEXR/ImfGenericOutputFile.h \
+  /usr/include/OpenEXR/ImfHeader.h \
+  /usr/include/OpenEXR/ImfIO.h \
+  /usr/include/OpenEXR/ImfLineOrder.h \
+  /usr/include/OpenEXR/ImfName.h \
+  /usr/include/OpenEXR/ImfNamespace.h \
+  /usr/include/OpenEXR/ImfOutputFile.h \
+  /usr/include/OpenEXR/ImfPixelType.h \
+  /usr/include/OpenEXR/ImfRgba.h \
+  /usr/include/OpenEXR/ImfRgbaFile.h \
+  /usr/include/OpenEXR/ImfThreading.h \
+  /usr/include/OpenEXR/ImfTileDescription.h \
+  /usr/include/OpenEXR/ImfXdr.h \
+  /usr/include/OpenEXR/OpenEXRConfig.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
   /usr/include/asm-generic/errno-base.h \
@@ -60,6 +97,7 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: /home/Andrew/Documents/University/Showr
   /usr/include/bits/iscanonical.h \
   /usr/include/bits/libc-header-start.h \
   /usr/include/bits/libm-simd-decl-stubs.h \
+  /usr/include/bits/local_lim.h \
   /usr/include/bits/locale.h \
   /usr/include/bits/long-double.h \
   /usr/include/bits/math-vector.h \
@@ -67,6 +105,8 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: /home/Andrew/Documents/University/Showr
   /usr/include/bits/mathcalls-macros.h \
   /usr/include/bits/mathcalls-narrow.h \
   /usr/include/bits/mathcalls.h \
+  /usr/include/bits/posix1_lim.h \
+  /usr/include/bits/posix2_lim.h \
   /usr/include/bits/posix_opt.h \
   /usr/include/bits/pthread_stack_min-dynamic.h \
   /usr/include/bits/pthreadtypes-arch.h \
@@ -133,12 +173,14 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: /home/Andrew/Documents/University/Showr
   /usr/include/bits/types/wint_t.h \
   /usr/include/bits/typesizes.h \
   /usr/include/bits/uintn-identity.h \
+  /usr/include/bits/uio_lim.h \
   /usr/include/bits/unistd_ext.h \
   /usr/include/bits/waitflags.h \
   /usr/include/bits/waitstatus.h \
   /usr/include/bits/wchar.h \
   /usr/include/bits/wctype-wchar.h \
   /usr/include/bits/wordsize.h \
+  /usr/include/bits/xopen_lim.h \
   /usr/include/c++/15.2.1/algorithm \
   /usr/include/c++/15.2.1/array \
   /usr/include/c++/15.2.1/atomic \
@@ -221,11 +263,16 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: /home/Andrew/Documents/University/Showr
   /usr/include/c++/15.2.1/bits/stl_iterator.h \
   /usr/include/c++/15.2.1/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/15.2.1/bits/stl_iterator_base_types.h \
+  /usr/include/c++/15.2.1/bits/stl_map.h \
+  /usr/include/c++/15.2.1/bits/stl_multimap.h \
+  /usr/include/c++/15.2.1/bits/stl_multiset.h \
   /usr/include/c++/15.2.1/bits/stl_numeric.h \
   /usr/include/c++/15.2.1/bits/stl_pair.h \
   /usr/include/c++/15.2.1/bits/stl_queue.h \
   /usr/include/c++/15.2.1/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/15.2.1/bits/stl_set.h \
   /usr/include/c++/15.2.1/bits/stl_tempbuf.h \
+  /usr/include/c++/15.2.1/bits/stl_tree.h \
   /usr/include/c++/15.2.1/bits/stl_uninitialized.h \
   /usr/include/c++/15.2.1/bits/stl_vector.h \
   /usr/include/c++/15.2.1/bits/streambuf.tcc \
@@ -255,6 +302,7 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: /home/Andrew/Documents/University/Showr
   /usr/include/c++/15.2.1/cstdint \
   /usr/include/c++/15.2.1/cstdio \
   /usr/include/c++/15.2.1/cstdlib \
+  /usr/include/c++/15.2.1/cstring \
   /usr/include/c++/15.2.1/ctime \
   /usr/include/c++/15.2.1/cwchar \
   /usr/include/c++/15.2.1/cwctype \
@@ -277,6 +325,8 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: /home/Andrew/Documents/University/Showr
   /usr/include/c++/15.2.1/iostream \
   /usr/include/c++/15.2.1/istream \
   /usr/include/c++/15.2.1/limits \
+  /usr/include/c++/15.2.1/map \
+  /usr/include/c++/15.2.1/math.h \
   /usr/include/c++/15.2.1/memory \
   /usr/include/c++/15.2.1/mutex \
   /usr/include/c++/15.2.1/new \
@@ -290,8 +340,10 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: /home/Andrew/Documents/University/Showr
   /usr/include/c++/15.2.1/queue \
   /usr/include/c++/15.2.1/random \
   /usr/include/c++/15.2.1/ratio \
+  /usr/include/c++/15.2.1/set \
   /usr/include/c++/15.2.1/sstream \
   /usr/include/c++/15.2.1/stdexcept \
+  /usr/include/c++/15.2.1/stdlib.h \
   /usr/include/c++/15.2.1/streambuf \
   /usr/include/c++/15.2.1/string \
   /usr/include/c++/15.2.1/string_view \
@@ -314,6 +366,7 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: /home/Andrew/Documents/University/Showr
   /usr/include/c++/15.2.1/typeinfo \
   /usr/include/c++/15.2.1/unordered_map \
   /usr/include/c++/15.2.1/vector \
+  /usr/include/c++/15.2.1/version \
   /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/atomic_word.h \
   /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/basic_file.h \
   /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++allocator.h \
@@ -335,8 +388,10 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: /home/Andrew/Documents/University/Showr
   /usr/include/features.h \
   /usr/include/gnu/stubs-64.h \
   /usr/include/gnu/stubs.h \
+  /usr/include/limits.h \
   /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/linux/posix_types.h \
   /usr/include/linux/sched/types.h \
   /usr/include/linux/stddef.h \
@@ -350,6 +405,8 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: /home/Andrew/Documents/University/Showr
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/string.h \
+  /usr/include/strings.h \
   /usr/include/sys/cdefs.h \
   /usr/include/sys/select.h \
   /usr/include/sys/single_threaded.h \
@@ -359,15 +416,136 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: /home/Andrew/Documents/University/Showr
   /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/adxintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/ammintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxavx512intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxbf16intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxcomplexintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxfp16intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxfp8intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxint8intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxmovrsintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxtf32intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxtileintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxtransposeintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2-512bf16intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2-512convertintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2-512mediaintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2-512minmaxintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2-512satcvtintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2bf16intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2convertintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2copyintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2mediaintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2minmaxintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2satcvtintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx2intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512bf16intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512bf16vlintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512bitalgintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512bitalgvlintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512bwintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512cdintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512dqintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512fintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512fp16intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512fp16vlintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512ifmaintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512ifmavlintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vbmi2intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vbmi2vlintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vbmiintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vbmivlintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vlbwintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vldqintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vlintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vnniintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vnnivlintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vp2intersectintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vp2intersectvlintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vpopcntdqintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vpopcntdqvlintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avxifmaintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avxintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avxneconvertintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avxvnniint16intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avxvnniint8intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avxvnniintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/bmi2intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/bmiintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/cetintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/cldemoteintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/clflushoptintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/clwbintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/clzerointrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/cmpccxaddintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/emmintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/enqcmdintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/f16cintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/fma4intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/fmaintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/fxsrintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/gfniintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/hresetintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/ia32intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/immintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/keylockerintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/limits.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/lwpintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/lzcntintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mm3dnow.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mm_malloc.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mmintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/movdirintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/movrsintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mwaitintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mwaitxintrin.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/omp.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/pconfigintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/pkuintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/pmmintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/popcntintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/prfchiintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/prfchwintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/raointintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/rdseedintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/rtmintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/serializeintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/sgxintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/sha512intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/shaintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/sm3intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/sm4intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/smmintrin.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/syslimits.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/tbmintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/tmmintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/tsxldtrkintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/uintrintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/usermsrintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/vaesintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/vpclmulqdqintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/waitpkgintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/wbnoinvdintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/wmmintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/x86gprintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/x86intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/xmmintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/xopintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/xsavecintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/xsaveintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/xsaveoptintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/xsavesintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/xtestintrin.h
 
 Raytracer: /usr/lib/Scrt1.o \
   /usr/lib/crti.o \
   /usr/lib/crtn.o \
   /usr/lib/libc.so \
+  /usr/lib/libdl.a \
   /usr/lib/libgcc_s.so \
   /usr/lib/libgcc_s.so.1 \
   /usr/lib/libm.so \
@@ -376,767 +554,1144 @@ Raytracer: /usr/lib/Scrt1.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a \
   /usr/lib/ld-linux-x86-64.so.2 \
+  /usr/lib/libIex-3_4.so.33.3.4.2 \
+  /usr/lib/libIlmThread-3_4.so.33.3.4.2 \
+  /usr/lib/libImath-3_2.so.30.3.2.2 \
+  /usr/lib/libOpenEXR-3_4.so.33.3.4.2 \
+  /usr/lib/libOpenEXRCore-3_4.so.33.3.4.2 \
   /usr/lib/libc.so.6 \
   /usr/lib/libc_nonshared.a \
+  /usr/lib/libdeflate.so.0 \
   /usr/lib/libm.so.6 \
   /usr/lib/libmvec.so.1 \
+  /usr/lib/libopenjph.so.0.24 \
   CMakeFiles/Raytracer.dir/src/main.cpp.o
 
 
-/usr/lib/libmvec.so.1:
+/usr/lib/libm.so.6:
 
-/usr/lib/libc.so.6:
+/usr/lib/libc_nonshared.a:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a:
+/usr/lib/libOpenEXRCore-3_4.so.33.3.4.2:
+
+/usr/lib/libOpenEXR-3_4.so.33.3.4.2:
+
+/usr/lib/libImath-3_2.so.30.3.2.2:
+
+/usr/lib/libIex-3_4.so.33.3.4.2:
+
+/usr/lib/ld-linux-x86-64.so.2:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o:
 
-/usr/lib/libm.so:
+/usr/lib/libstdc++.so:
 
 /usr/lib/libgcc_s.so.1:
 
-/usr/lib/crti.o:
+/usr/lib/libgcc_s.so:
 
-/usr/lib/Scrt1.o:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/omp.h:
-
-/usr/include/wchar.h:
-
-/usr/include/unistd.h:
-
-/usr/include/sys/types.h:
-
-/usr/include/sys/cdefs.h:
-
-/usr/include/stdlib.h:
-
-/usr/include/linux/sched/types.h:
-
-/usr/include/linux/close_range.h:
-
-/usr/include/gnu/stubs.h:
-
-/usr/include/features-time64.h:
-
-/usr/include/ctype.h:
-
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/os_defines.h:
-
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/opt_random.h:
-
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/gthr.h:
-
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/gthr-default.h:
-
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/error_constants.h:
-
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/ctype_inline.h:
-
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++locale.h:
-
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++io.h:
-
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/basic_file.h:
-
-/usr/include/c++/15.2.1/typeinfo:
-
-/usr/include/c++/15.2.1/type_traits:
-
-/usr/include/signal.h:
-
-/usr/include/c++/15.2.1/tr1/poly_laguerre.tcc:
-
-/usr/include/c++/15.2.1/tr1/modified_bessel_func.tcc:
-
-/usr/include/c++/15.2.1/tr1/hypergeometric.tcc:
-
-/usr/include/c++/15.2.1/tr1/gamma.tcc:
-
-/usr/include/c++/15.2.1/tr1/exp_integral.tcc:
-
-/usr/include/c++/15.2.1/tr1/ell_integral.tcc:
-
-/usr/include/c++/15.2.1/tr1/bessel_function.tcc:
-
-/usr/include/c++/15.2.1/thread:
-
-/usr/include/c++/15.2.1/string_view:
-
-/usr/include/c++/15.2.1/streambuf:
-
-/usr/include/c++/15.2.1/stdexcept:
-
-/usr/include/c++/15.2.1/sstream:
-
-/usr/include/c++/15.2.1/pstl/pstl_config.h:
-
-/usr/include/c++/15.2.1/pstl/glue_numeric_defs.h:
-
-/usr/include/c++/15.2.1/pstl/glue_memory_defs.h:
-
-/usr/include/c++/15.2.1/pstl/glue_algorithm_defs.h:
-
-/usr/include/c++/15.2.1/pstl/execution_defs.h:
-
-/usr/include/c++/15.2.1/ostream:
-
-/usr/include/sys/select.h:
-
-/usr/include/c++/15.2.1/numeric:
-
-/usr/include/c++/15.2.1/new:
-
-/usr/include/c++/15.2.1/memory:
-
-/usr/include/c++/15.2.1/istream:
-
-/usr/include/c++/15.2.1/initializer_list:
-
-/usr/include/c++/15.2.1/functional:
-
-/usr/include/c++/15.2.1/fstream:
-
-/usr/include/c++/15.2.1/ext/string_conversions.h:
-
-/usr/include/c++/15.2.1/ext/aligned_buffer.h:
-
-/usr/include/c++/15.2.1/deque:
-
-/usr/include/bits/types/struct_sched_param.h:
-
-/usr/include/bits/struct_rwlock.h:
-
-/usr/include/bits/types/sigset_t.h:
-
-/usr/include/bits/types/sigevent_t.h:
-
-/usr/include/bits/types/locale_t.h:
-
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/atomic_word.h:
-
-/usr/include/c++/15.2.1/bits/parse_numbers.h:
-
-/usr/include/bits/types/clock_t.h:
-
-/usr/include/c++/15.2.1/tr1/riemann_zeta.tcc:
-
-/usr/include/bits/types/sig_atomic_t.h:
-
-/usr/include/bits/types/__fpos_t.h:
-
-/usr/include/bits/types/__locale_t.h:
-
-/usr/include/c++/15.2.1/bits/sstream.tcc:
-
-/usr/include/bits/types/__fpos64_t.h:
-
-CMakeFiles/Raytracer.dir/src/main.cpp.o:
-
-/usr/include/bits/flt-eval-method.h:
-
-/usr/include/bits/errno.h:
-
-/usr/include/bits/stdlib-float.h:
-
-/usr/include/bits/stdio_lim.h:
-
-/usr/include/bits/types/__mbstate_t.h:
-
-/usr/include/bits/stdint-least.h:
-
-/usr/include/bits/types/error_t.h:
-
-/usr/include/c++/15.2.1/iosfwd:
-
-/usr/include/bits/types/struct_timeval.h:
-
-/usr/include/c++/15.2.1/bits/atomic_lockfree_defines.h:
-
-/usr/include/bits/sigstksz.h:
-
-/usr/include/bits/signum-generic.h:
-
-/usr/include/c++/15.2.1/tr1/legendre_function.tcc:
-
-/usr/include/bits/types/struct_sigstack.h:
-
-/usr/include/c++/15.2.1/unordered_map:
-
-/usr/include/bits/types/stack_t.h:
-
-/usr/include/bits/sigevent-consts.h:
-
-/usr/include/c++/15.2.1/bits/stl_bvector.h:
-
-/usr/include/bits/types/mbstate_t.h:
-
-/usr/include/bits/signal_ext.h:
-
-/usr/include/bits/setjmp.h:
-
-/usr/lib/libm.so.6:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/loader/objLoader.h:
-
-/usr/include/bits/select.h:
-
-/usr/lib/libc.so:
-
-/usr/include/c++/15.2.1/tr1/beta_function.tcc:
-
-/usr/include/bits/pthreadtypes.h:
-
-/usr/include/c++/15.2.1/bits/exception_ptr.h:
-
-/usr/include/bits/pthreadtypes-arch.h:
-
-/usr/include/bits/pthread_stack_min-dynamic.h:
-
-/usr/include/bits/mathcalls-narrow.h:
-
-/usr/include/bits/mathcalls-macros.h:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h:
-
-/usr/include/asm-generic/int-ll64.h:
-
-/usr/include/bits/long-double.h:
-
-/usr/include/bits/locale.h:
-
-/usr/include/c++/15.2.1/string:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/emitter.cpp:
-
-/usr/include/bits/types/struct_tm.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/triPrim.h:
-
-/usr/include/stdint.h:
-
-/usr/include/endian.h:
-
-/usr/include/c++/15.2.1/cmath:
-
-/usr/include/bits/types/time_t.h:
-
-/usr/include/c++/15.2.1/bits/char_traits.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/lambertian.cpp:
-
-/usr/include/bits/waitflags.h:
-
-/usr/include/c++/15.2.1/bits/stl_pair.h:
-
-/usr/include/c++/15.2.1/ext/numeric_traits.h:
-
-/usr/include/bits/getopt_core.h:
-
-/usr/include/bits/sigstack.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/bvh/bvh.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/interaction/rayHitInfo.h:
-
-/usr/include/pthread.h:
-
-/usr/include/c++/15.2.1/bits/stl_algo.h:
-
-/usr/include/c++/15.2.1/bits/stl_uninitialized.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/math/vec2.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/debug/utils.h:
-
-/usr/include/bits/wctype-wchar.h:
-
-/usr/include/bits/types/cookie_io_functions_t.h:
-
-/usr/include/linux/stddef.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/ray.h:
-
-/usr/include/c++/15.2.1/cstdlib:
-
-/usr/include/bits/types/siginfo_t.h:
-
-/usr/include/bits/signum-arch.h:
-
-/usr/include/c++/15.2.1/bits/stl_algobase.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/ppm_exporter.h:
-
-/usr/include/sys/single_threaded.h:
-
-/usr/include/c++/15.2.1/bits/shared_ptr.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/math/interval.h:
-
-/usr/include/c++/15.2.1/ios:
-
-/usr/include/bits/thread-shared-types.h:
-
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/ctype_base.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/aabb.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/random.h:
-
-/usr/lib/ld-linux-x86-64.so.2:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/color.h:
-
-/usr/include/c++/15.2.1/bits/stl_iterator.h:
-
-/usr/include/features.h:
-
-/usr/include/bits/sched.h:
-
-/usr/include/bits/types/__FILE.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/mesh.h:
-
-/usr/include/c++/15.2.1/bits/requires_hosted.h:
-
-/usr/include/bits/ss_flags.h:
-
-/usr/include/c++/15.2.1/bits/locale_facets.tcc:
-
-/usr/include/asm/posix_types_64.h:
-
-/usr/include/bits/time.h:
-
-/usr/include/asm/posix_types.h:
-
-/usr/include/bits/byteswap.h:
-
-/usr/include/c++/15.2.1/tr1/special_function_util.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/main.cpp:
-
-/usr/include/bits/floatn.h:
-
-/usr/include/c++/15.2.1/ext/atomicity.h:
-
-/usr/include/bits/types/struct_timespec.h:
-
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++config.h:
-
-/usr/include/bits/types/__sigset_t.h:
-
-/usr/include/asm-generic/posix_types.h:
-
-/usr/include/c++/15.2.1/bits/unique_lock.h:
-
-/usr/include/bits/posix_opt.h:
-
-/usr/include/bits/atomic_wide_counter.h:
-
-/usr/include/bits/time64.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/camera/camera.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/math/vec3.h:
-
-/usr/include/c++/15.2.1/bits/specfun.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/sceneObjects.h:
-
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++allocator.h:
-
-/usr/include/c++/15.2.1/bits/range_access.h:
-
-/usr/include/bits/sigthread.h:
-
-/usr/include/c++/15.2.1/bits/ostream.h:
-
-/usr/include/sys/ucontext.h:
-
-/usr/include/stdc-predef.h:
-
-/usr/include/c++/15.2.1/bits/stl_tempbuf.h:
-
-/usr/include/asm-generic/errno-base.h:
-
-/usr/include/c++/15.2.1/exception:
-
-/usr/include/c++/15.2.1/bits/stl_heap.h:
-
-/usr/include/asm-generic/bitsperlong.h:
-
-/usr/include/asm-generic/types.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/sphere.h:
-
-/usr/include/bits/fp-logb.h:
-
-/usr/include/bits/sigcontext.h:
-
-/usr/include/bits/types/wint_t.h:
-
-/usr/include/c++/15.2.1/bits/memoryfwd.h:
-
-/usr/include/asm/bitsperlong.h:
-
-/usr/include/c++/15.2.1/bits/alloc_traits.h:
-
-/usr/include/asm/types.h:
-
-/usr/include/c++/15.2.1/random:
-
-/usr/include/bits/stdint-intn.h:
-
-/usr/include/bits/types/clockid_t.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/threadpool.h:
-
-/usr/include/bits/mathcalls-helper-functions.h:
-
-/usr/include/c++/15.2.1/bits/charconv.h:
-
-/usr/include/bits/confname.h:
-
-/usr/include/c++/15.2.1/bits/cpp_type_traits.h:
-
-/usr/include/time.h:
-
-/usr/include/c++/15.2.1/bits/fstream.tcc:
-
-/usr/include/gnu/stubs-64.h:
-
-/usr/include/bits/types/__sigval_t.h:
-
-/usr/include/c++/15.2.1/bits/version.h:
-
-/usr/include/bits/timesize.h:
-
-/usr/include/bits/types/struct___jmp_buf_tag.h:
-
-/usr/include/bits/wchar.h:
-
-/usr/include/bits/waitstatus.h:
-
-/usr/include/c++/15.2.1/system_error:
-
-/usr/include/bits/stdint-uintn.h:
-
-/usr/include/asm/errno.h:
-
-/usr/include/bits/endian.h:
-
-/usr/include/math.h:
-
-/usr/include/c++/15.2.1/bits/invoke.h:
-
-/usr/include/c++/15.2.1/bits/stl_function.h:
-
-/usr/include/bits/endianness.h:
-
-/usr/include/c++/15.2.1/bits/std_mutex.h:
-
-/usr/include/bits/types/sigval_t.h:
-
-/usr/include/bits/libm-simd-decl-stubs.h:
-
-/usr/include/c++/15.2.1/bits/basic_ios.tcc:
-
-/usr/include/c++/15.2.1/cerrno:
-
-/usr/include/c++/15.2.1/ratio:
-
-/usr/include/bits/floatn-common.h:
-
-/usr/include/wctype.h:
-
-/usr/include/sched.h:
-
-/usr/include/bits/fp-fast.h:
-
-/usr/include/c++/15.2.1/bits/random.h:
-
-/usr/include/c++/15.2.1/ext/type_traits.h:
-
-/usr/include/c++/15.2.1/bits/this_thread_sleep.h:
-
-/usr/lib/libstdc++.so:
-
-/usr/include/locale.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/tri.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/dielectric.cpp:
-
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/cpu_defines.h:
-
-/usr/include/c++/15.2.1/bits/uses_allocator.h:
-
-/usr/include/errno.h:
-
-/usr/include/c++/15.2.1/tuple:
-
-/usr/include/bits/getopt_posix.h:
-
-/usr/include/bits/sigaction.h:
-
-/usr/include/c++/15.2.1/bits/vector.tcc:
-
-/usr/include/bits/iscanonical.h:
-
-/usr/include/bits/siginfo-consts.h:
-
-/usr/include/bits/types.h:
-
-/usr/include/c++/15.2.1/bits/move.h:
-
-/usr/include/linux/errno.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/render/renderer.h:
-
-/usr/include/bits/libc-header-start.h:
-
-/usr/include/c++/15.2.1/tr1/poly_hermite.tcc:
-
-/usr/include/bits/types/timer_t.h:
-
-/usr/include/bits/uintn-identity.h:
-
-/usr/include/c++/15.2.1/mutex:
-
-/usr/include/c++/15.2.1/ext/alloc_traits.h:
-
-/usr/include/bits/unistd_ext.h:
-
-/usr/include/stdio.h:
-
-/usr/include/bits/wordsize.h:
-
-/usr/include/bits/math-vector.h:
-
-/usr/include/c++/15.2.1/bits/exception.h:
-
-/usr/include/c++/15.2.1/algorithm:
-
-/usr/include/c++/15.2.1/atomic:
-
-/usr/include/c++/15.2.1/backward/auto_ptr.h:
-
-/usr/include/c++/15.2.1/array:
-
-/usr/include/c++/15.2.1/bits/algorithmfwd.h:
-
-/usr/include/c++/15.2.1/debug/debug.h:
-
-/usr/include/c++/15.2.1/bits/align.h:
-
-/usr/include/c++/15.2.1/bits/functexcept.h:
-
-/usr/include/c++/15.2.1/bits/allocated_ptr.h:
-
-/usr/include/c++/15.2.1/compare:
-
-/usr/include/c++/15.2.1/cwctype:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/math/ivec3.h:
-
-/usr/include/c++/15.2.1/bits/allocator.h:
-
-/usr/include/c++/15.2.1/bits/atomic_base.h:
-
-/usr/include/bits/siginfo-consts-arch.h:
-
-/usr/include/c++/15.2.1/bit:
-
-/usr/include/c++/15.2.1/bits/basic_ios.h:
-
-/usr/include/c++/15.2.1/bits/chrono.h:
-
-/usr/include/c++/15.2.1/bits/codecvt.h:
-
-/usr/include/c++/15.2.1/bits/concept_check.h:
-
-/usr/include/c++/15.2.1/ext/concurrence.h:
-
-/usr/include/c++/15.2.1/bits/cxxabi_forced.h:
-
-/usr/include/c++/15.2.1/bits/cxxabi_init_exception.h:
-
-/usr/include/c++/15.2.1/bits/deque.tcc:
-
-/usr/include/c++/15.2.1/bits/erase_if.h:
-
-/usr/include/c++/15.2.1/debug/assertions.h:
-
-/usr/include/c++/15.2.1/bits/shared_ptr_base.h:
-
-/usr/include/c++/15.2.1/vector:
-
-/usr/include/c++/15.2.1/bits/exception_defines.h:
-
-/usr/lib/crtn.o:
-
-/usr/include/c++/15.2.1/bits/stl_numeric.h:
-
-/usr/include/c++/15.2.1/bits/functional_hash.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/ppm_exporter.cpp:
-
-/usr/include/c++/15.2.1/bits/hash_bytes.h:
-
-/usr/include/c++/15.2.1/backward/binders.h:
-
-/usr/include/c++/15.2.1/cctype:
-
-/usr/include/c++/15.2.1/bits/hashtable.h:
-
-/usr/include/c++/15.2.1/bits/hashtable_policy.h:
-
-/usr/include/c++/15.2.1/bits/ios_base.h:
-
-/usr/include/c++/15.2.1/chrono:
-
-/usr/include/c++/15.2.1/bits/stl_iterator_base_funcs.h:
-
-/usr/include/c++/15.2.1/limits:
-
-/usr/include/bits/struct_mutex.h:
-
-/usr/include/c++/15.2.1/bits/stl_construct.h:
-
-/usr/include/c++/15.2.1/bits/istream.tcc:
-
-/usr/include/c++/15.2.1/cstdio:
-
-/usr/include/alloca.h:
-
-/usr/include/c++/15.2.1/bits/locale_classes.h:
-
-/usr/include/c++/15.2.1/bits/locale_facets.h:
-
-/usr/include/bits/types/struct_itimerspec.h:
-
-/usr/include/c++/15.2.1/bits/predefined_ops.h:
-
-/usr/lib/libc_nonshared.a:
-
-/usr/include/c++/15.2.1/condition_variable:
-
-/usr/include/c++/15.2.1/bits/localefwd.h:
-
-/usr/include/c++/15.2.1/bits/memory_resource.h:
-
-/usr/include/c++/15.2.1/bits/nested_exception.h:
-
-/usr/include/c++/15.2.1/bits/enable_special_members.h:
-
-/usr/include/c++/15.2.1/bits/stringfwd.h:
-
-/usr/include/c++/15.2.1/bits/new_allocator.h:
-
-/usr/include/c++/15.2.1/bits/basic_string.tcc:
-
-/usr/include/c++/15.2.1/bits/node_handle.h:
-
-/usr/include/c++/15.2.1/bits/refwrap.h:
-
-/usr/include/bits/cpu-set.h:
-
-/usr/include/c++/15.2.1/bits/streambuf.tcc:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/utils.h:
-
-/usr/include/c++/15.2.1/bits/ostream.tcc:
-
-/usr/include/c++/15.2.1/bits/ostream_insert.h:
-
-/usr/include/c++/15.2.1/queue:
-
-/usr/include/c++/15.2.1/bits/ptr_traits.h:
-
-/usr/include/c++/15.2.1/bits/postypes.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/metallic.cpp:
-
-/usr/include/c++/15.2.1/bits/random.tcc:
-
-/usr/include/c++/15.2.1/bits/locale_classes.tcc:
-
-/usr/include/c++/15.2.1/bits/shared_ptr_atomic.h:
-
-/usr/include/linux/types.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/material.h:
-
-/usr/include/c++/15.2.1/bits/std_abs.h:
-
-/usr/include/c++/15.2.1/bits/std_function.h:
+/usr/lib/libdl.a:
 
 /usr/include/bits/environments.h:
 
 /usr/include/bits/types/struct_FILE.h:
 
-/usr/include/c++/15.2.1/bits/std_thread.h:
+/usr/include/c++/15.2.1/bits/std_function.h:
 
-/usr/include/c++/15.2.1/bits/stl_deque.h:
+/usr/include/OpenEXR/ImfRgba.h:
 
-/usr/include/c++/15.2.1/bits/stl_iterator_base_types.h:
+/usr/include/c++/15.2.1/bits/locale_classes.tcc:
 
-/usr/include/c++/15.2.1/iostream:
+/usr/include/c++/15.2.1/bits/random.tcc:
 
-/usr/include/bits/mathcalls.h:
+/usr/include/c++/15.2.1/queue:
 
-/usr/include/c++/15.2.1/bits/stl_queue.h:
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxtileintrin.h:
 
-/usr/include/c++/15.2.1/bits/stl_raw_storage_iter.h:
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/utils.h:
 
-/usr/include/asm-generic/errno.h:
+/usr/include/c++/15.2.1/bits/refwrap.h:
 
-/usr/include/c++/15.2.1/bits/stl_vector.h:
+/usr/include/c++/15.2.1/bits/basic_string.tcc:
 
-/usr/include/c++/15.2.1/bits/streambuf_iterator.h:
+/usr/include/c++/15.2.1/bits/nested_exception.h:
 
-/usr/include/bits/typesizes.h:
+/usr/include/c++/15.2.1/bits/predefined_ops.h:
 
-/usr/include/c++/15.2.1/bits/string_view.tcc:
+/usr/include/bits/types/struct_itimerspec.h:
 
-/usr/include/c++/15.2.1/cwchar:
+/usr/include/c++/15.2.1/bits/locale_facets.h:
 
-/usr/include/bits/siginfo-arch.h:
+/usr/include/c++/15.2.1/bits/locale_classes.h:
 
-/usr/include/c++/15.2.1/bits/uniform_int_dist.h:
+/usr/include/c++/15.2.1/bits/istream.tcc:
 
-/usr/include/c++/15.2.1/bits/unique_ptr.h:
+/usr/include/bits/struct_mutex.h:
 
-/usr/include/c++/15.2.1/bits/unordered_map.h:
+/usr/include/c++/15.2.1/bits/stl_construct.h:
 
-/usr/include/c++/15.2.1/bits/basic_string.h:
+/usr/include/c++/15.2.1/limits:
+
+/usr/include/c++/15.2.1/bits/ios_base.h:
+
+/usr/include/c++/15.2.1/bits/hashtable_policy.h:
+
+/usr/include/c++/15.2.1/bits/hashtable.h:
+
+/usr/include/c++/15.2.1/bits/hash_bytes.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/ppm_exporter.cpp:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/cldemoteintrin.h:
+
+/usr/include/c++/15.2.1/bits/functional_hash.h:
+
+/usr/include/c++/15.2.1/bits/stl_numeric.h:
+
+/usr/include/c++/15.2.1/bits/deque.tcc:
+
+/usr/include/c++/15.2.1/bits/cxxabi_forced.h:
+
+/usr/include/OpenEXR/ImfCompression.h:
+
+/usr/include/c++/15.2.1/bits/codecvt.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/tbmintrin.h:
 
 /usr/include/c++/15.2.1/bits/uses_allocator_args.h:
 
-/usr/include/linux/posix_types.h:
+/usr/include/c++/15.2.1/bit:
+
+/usr/include/c++/15.2.1/bits/atomic_base.h:
+
+/usr/include/c++/15.2.1/bits/functexcept.h:
+
+/usr/include/c++/15.2.1/bits/align.h:
+
+/usr/include/c++/15.2.1/debug/debug.h:
+
+/usr/include/c++/15.2.1/array:
+
+/usr/include/c++/15.2.1/backward/binders.h:
+
+/usr/include/c++/15.2.1/ext/concurrence.h:
+
+/usr/include/c++/15.2.1/cctype:
+
+/usr/include/c++/15.2.1/atomic:
+
+/usr/include/c++/15.2.1/algorithm:
+
+/usr/include/c++/15.2.1/bits/postypes.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/popcntintrin.h:
+
+/usr/include/c++/15.2.1/tr1/ell_integral.tcc:
+
+/usr/include/c++/15.2.1/bits/exception.h:
+
+/usr/include/bits/uio_lim.h:
+
+/usr/include/bits/math-vector.h:
+
+/usr/include/stdio.h:
+
+/usr/include/bits/unistd_ext.h:
+
+/usr/include/c++/15.2.1/ext/alloc_traits.h:
+
+/usr/include/c++/15.2.1/mutex:
+
+/usr/include/bits/types/timer_t.h:
+
+/usr/include/c++/15.2.1/tr1/poly_hermite.tcc:
+
+/usr/include/bits/types/struct_tm.h:
+
+/usr/include/c++/15.2.1/bits/atomic_lockfree_defines.h:
+
+/usr/include/c++/15.2.1/iosfwd:
+
+/usr/include/c++/15.2.1/bits/cxxabi_init_exception.h:
+
+/usr/include/bits/types/struct_sigstack.h:
+
+/usr/include/c++/15.2.1/tr1/legendre_function.tcc:
+
+/usr/include/bits/types/struct_sched_param.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/immintrin.h:
+
+/usr/include/bits/types/struct___jmp_buf_tag.h:
+
+/usr/include/bits/waitstatus.h:
+
+/usr/include/bits/wchar.h:
+
+/usr/include/bits/types/sigval_t.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h:
+
+/usr/include/bits/types/sigset_t.h:
+
+/usr/include/c++/15.2.1/bits/ostream_insert.h:
+
+/usr/include/bits/types/sigevent_t.h:
+
+/usr/include/bits/typesizes.h:
+
+/usr/include/bits/types/sig_atomic_t.h:
+
+/usr/include/c++/15.2.1/bits/string_view.tcc:
+
+/usr/include/bits/types/__fpos_t.h:
+
+/usr/include/c++/15.2.1/tr1/riemann_zeta.tcc:
+
+/usr/include/c++/15.2.1/bits/parse_numbers.h:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/atomic_word.h:
+
+/usr/include/bits/types/locale_t.h:
+
+/usr/include/bits/types/clockid_t.h:
+
+/usr/include/bits/types/__sigset_t.h:
+
+/usr/include/Imath/ImathTypeTraits.h:
+
+/usr/include/bits/types/__locale_t.h:
+
+/usr/include/bits/types/__fpos64_t.h:
+
+/usr/include/bits/types/__FILE.h:
+
+/usr/include/c++/15.2.1/bits/move.h:
+
+/usr/include/bits/timesize.h:
+
+/usr/include/bits/sched.h:
+
+/usr/include/bits/struct_rwlock.h:
+
+/usr/include/bits/time64.h:
+
+/usr/include/c++/15.2.1/vector:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/camera/camera.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/waitpkgintrin.h:
+
+/usr/include/bits/stdlib-float.h:
+
+/usr/include/asm/posix_types.h:
+
+/usr/include/bits/stdio_lim.h:
+
+/usr/include/bits/stdint-uintn.h:
+
+/usr/include/OpenEXR/ImfFrameBuffer.h:
+
+/usr/include/asm/errno.h:
+
+/usr/include/c++/15.2.1/system_error:
+
+/usr/include/bits/stdint-least.h:
+
+/usr/include/OpenEXR/ImfExport.h:
+
+/usr/include/c++/15.2.1/bits/shared_ptr_base.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2mediaintrin.h:
+
+/usr/include/OpenEXR/ImfAttribute.h:
+
+/usr/include/c++/15.2.1/bits/stl_deque.h:
+
+/usr/include/bits/types/__sigval_t.h:
+
+/usr/include/gnu/stubs-64.h:
+
+/usr/include/c++/15.2.1/bits/unordered_map.h:
+
+/usr/include/bits/types/mbstate_t.h:
+
+/usr/include/bits/signal_ext.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512fp16vlintrin.h:
+
+/usr/include/c++/15.2.1/bits/stl_algo.h:
+
+/usr/include/c++/15.2.1/bits/stl_uninitialized.h:
+
+/usr/include/pthread.h:
+
+/usr/include/bits/types/time_t.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxtransposeintrin.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/dielectric.cpp:
+
+/usr/include/OpenEXR/ImfHeader.h:
+
+/usr/include/locale.h:
+
+/usr/include/OpenEXR/IexMathExc.h:
+
+/usr/include/OpenEXR/ImfPixelType.h:
+
+/usr/include/c++/15.2.1/bits/uniform_int_dist.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/wmmintrin.h:
+
+/usr/include/OpenEXR/IexExport.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/pconfigintrin.h:
+
+/usr/include/bits/types/error_t.h:
+
+/usr/include/c++/15.2.1/backward/auto_ptr.h:
+
+/usr/include/Imath/ImathNamespace.h:
+
+/usr/include/bits/sigthread.h:
+
+/usr/include/c++/15.2.1/bits/unique_lock.h:
+
+/usr/include/bits/stdint-intn.h:
+
+/usr/include/bits/wctype-wchar.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/math/vec2.h:
+
+/usr/include/OpenEXR/ImfIO.h:
+
+/usr/lib/libc.so:
+
+/usr/include/c++/15.2.1/bits/basic_string.h:
+
+/usr/include/asm-generic/types.h:
+
+/usr/include/c++/15.2.1/bits/stl_heap.h:
+
+/usr/include/c++/15.2.1/exception:
+
+/usr/include/c++/15.2.1/bits/range_access.h:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++allocator.h:
+
+/usr/include/Imath/ImathMath.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/pixel.h:
+
+/usr/include/OpenEXR/ImfNamespace.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avxneconvertintrin.h:
+
+/usr/include/c++/15.2.1/ext/type_traits.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/color.h:
+
+/usr/include/c++/15.2.1/cwchar:
+
+/usr/include/OpenEXR/ImfName.h:
+
+/usr/include/OpenEXR/ImfRgbaFile.h:
+
+/usr/include/c++/15.2.1/bits/shared_ptr.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/adxintrin.h:
+
+/usr/include/OpenEXR/ImfForward.h:
+
+/usr/include/Imath/ImathConfig.h:
+
+/usr/include/bits/types/cookie_io_functions_t.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/ray.h:
+
+/usr/include/c++/15.2.1/bits/stl_algobase.h:
+
+/usr/include/bits/types/siginfo_t.h:
+
+/usr/include/Imath/ImathPlatform.h:
+
+/usr/include/strings.h:
+
+/usr/include/OpenEXR/ImfLineOrder.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/xsaveoptintrin.h:
+
+/usr/include/bits/waitflags.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/lambertian.cpp:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/math/ivec3.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/xtestintrin.h:
+
+/usr/include/bits/siginfo-arch.h:
+
+/usr/include/c++/15.2.1/bits/stl_bvector.h:
+
+/usr/include/bits/types.h:
+
+/usr/include/c++/15.2.1/bits/locale_facets.tcc:
+
+/usr/include/asm/posix_types_64.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/keylockerintrin.h:
+
+/usr/include/bits/types/stack_t.h:
+
+/usr/include/c++/15.2.1/unordered_map:
+
+/usr/include/bits/posix2_lim.h:
+
+/usr/lib/libm.so:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxmovrsintrin.h:
+
+/usr/include/bits/sigevent-consts.h:
+
+/usr/include/c++/15.2.1/bits/shared_ptr_atomic.h:
+
+/usr/include/Imath/half.h:
+
+/usr/include/bits/locale.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2copyintrin.h:
+
+/usr/include/c++/15.2.1/bits/std_mutex.h:
+
+/usr/include/OpenEXR/IexConfig.h:
+
+/usr/include/bits/local_lim.h:
+
+/usr/include/c++/15.2.1/bits/allocated_ptr.h:
+
+/usr/include/OpenEXR/ImfChannelList.h:
+
+/usr/include/OpenEXR/ImfThreading.h:
+
+/usr/lib/libmvec.so.1:
+
+/usr/include/linux/stddef.h:
+
+/usr/include/bits/fp-logb.h:
+
+/usr/lib/libIlmThread-3_4.so.33.3.4.2:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxavx512intrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vnniintrin.h:
+
+/usr/include/sys/single_threaded.h:
+
+/usr/include/asm-generic/errno.h:
+
+/usr/include/bits/time.h:
+
+/usr/include/c++/15.2.1/bits/stl_vector.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/triPrim.h:
+
+/usr/include/OpenEXR/ImfTileDescription.h:
+
+/usr/include/c++/15.2.1/tr1/bessel_function.tcc:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/main.cpp:
+
+/usr/include/c++/15.2.1/bits/std_abs.h:
+
+/usr/include/c++/15.2.1/tr1/special_function_util.h:
+
+/usr/include/bits/thread-shared-types.h:
+
+/usr/include/c++/15.2.1/ios:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2minmaxintrin.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/aabb.h:
+
+/usr/include/c++/15.2.1/ext/atomicity.h:
+
+/usr/include/c++/15.2.1/bits/allocator.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/xsavesintrin.h:
+
+/usr/include/Imath/ImathVec.h:
+
+/usr/include/OpenEXR/ImfGenericOutputFile.h:
+
+/usr/include/bits/mathcalls-helper-functions.h:
+
+/usr/include/c++/15.2.1/bits/charconv.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/bvh/bvh.h:
+
+/usr/include/bits/floatn.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/material.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/threadpool.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/exr_exporter.cpp:
+
+/usr/include/c++/15.2.1/bits/enable_special_members.h:
+
+/usr/include/signal.h:
+
+/usr/include/bits/atomic_wide_counter.h:
+
+/usr/include/bits/posix_opt.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/render/renderer.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/debug/utils.h:
+
+/usr/include/linux/errno.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512dqintrin.h:
+
+/usr/include/c++/15.2.1/bits/new_allocator.h:
+
+/usr/include/bits/siginfo-consts.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/random.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/rdseedintrin.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/math/interval.h:
+
+/usr/lib/crtn.o:
+
+/usr/include/linux/limits.h:
+
+/usr/include/asm-generic/errno-base.h:
+
+/usr/include/bits/wordsize.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/interaction/rayHitInfo.h:
+
+/usr/include/bits/getopt_posix.h:
+
+/usr/lib/libopenjph.so.0.24:
+
+/usr/include/c++/15.2.1/tuple:
+
+/usr/include/errno.h:
+
+/usr/include/OpenEXR/OpenEXRConfig.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxfp16intrin.h:
+
+/usr/include/OpenEXR/ImfOutputFile.h:
+
+/usr/include/asm-generic/posix_types.h:
+
+/usr/include/c++/15.2.1/bits/stl_map.h:
+
+/usr/include/c++/15.2.1/bits/alloc_traits.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/hresetintrin.h:
+
+/usr/include/c++/15.2.1/bits/basic_ios.h:
+
+/usr/include/asm/bitsperlong.h:
+
+/usr/include/c++/15.2.1/bits/algorithmfwd.h:
+
+/usr/include/c++/15.2.1/bits/memoryfwd.h:
+
+/usr/include/bits/types/wint_t.h:
+
+/usr/include/bits/sigcontext.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/sm4intrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512ifmaintrin.h:
+
+/usr/include/bits/endian.h:
+
+/usr/include/c++/15.2.1/bits/localefwd.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/bmiintrin.h:
+
+/usr/include/asm/types.h:
+
+/usr/include/bits/byteswap.h:
+
+/usr/include/OpenEXR/ImfXdr.h:
+
+/usr/include/bits/confname.h:
+
+/usr/include/bits/types/__mbstate_t.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx2intrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2-512mediaintrin.h:
+
+/usr/include/c++/15.2.1/bits/fstream.tcc:
+
+/usr/include/time.h:
+
+/usr/include/c++/15.2.1/bits/cpp_type_traits.h:
+
+/usr/include/bits/cpu-set.h:
+
+/usr/include/c++/15.2.1/bits/streambuf.tcc:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/cmpccxaddintrin.h:
+
+/usr/include/Imath/ImathBox.h:
+
+/usr/include/bits/timex.h:
+
+/usr/include/c++/15.2.1/ctime:
+
+/usr/include/bits/errno.h:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/ctype_base.h:
+
+/usr/include/bits/floatn-common.h:
+
+/usr/include/c++/15.2.1/ratio:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/limits.h:
 
 /usr/include/bits/types/FILE.h:
 
 /usr/include/c++/15.2.1/bits/utility.h:
 
+/usr/include/linux/posix_types.h:
+
+/usr/include/bits/flt-eval-method.h:
+
+/usr/lib/libc.so.6:
+
+/usr/include/bits/fp-fast.h:
+
+/usr/include/sched.h:
+
+/usr/include/wctype.h:
+
+/usr/include/bits/posix1_lim.h:
+
+/usr/include/OpenEXR/IexNamespace.h:
+
+/usr/include/wchar.h:
+
+/usr/include/c++/15.2.1/bits/exception_defines.h:
+
+/usr/include/c++/15.2.1/bits/random.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/usermsrintrin.h:
+
+/usr/include/bits/iscanonical.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/math/vec3.h:
+
+/usr/include/bits/sigaction.h:
+
+/usr/include/c++/15.2.1/bits/vector.tcc:
+
+/usr/include/bits/getopt_core.h:
+
+/usr/include/bits/xopen_lim.h:
+
+/usr/include/c++/15.2.1/ext/numeric_traits.h:
+
+/usr/include/bits/sigstack.h:
+
+/usr/include/c++/15.2.1/bits/basic_ios.tcc:
+
+/usr/include/c++/15.2.1/bits/requires_hosted.h:
+
+/usr/include/bits/libm-simd-decl-stubs.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avxintrin.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/emitter.cpp:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a:
+
+/usr/include/c++/15.2.1/debug/assertions.h:
+
+/usr/include/c++/15.2.1/string:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512fp16intrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/movdirintrin.h:
+
+/usr/include/asm-generic/int-ll64.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mwaitintrin.h:
+
+/usr/include/OpenEXR/ImfArray.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h:
+
+/usr/include/bits/mathcalls-macros.h:
+
+/usr/include/c++/15.2.1/bits/erase_if.h:
+
+/usr/include/bits/mathcalls-narrow.h:
+
+/usr/include/bits/types/clock_t.h:
+
+/usr/include/math.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mwaitxintrin.h:
+
+/usr/include/bits/mathcalls.h:
+
+/usr/include/bits/pthread_stack_min-dynamic.h:
+
+/usr/include/bits/pthreadtypes-arch.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/pkuintrin.h:
+
+/usr/include/c++/15.2.1/bits/exception_ptr.h:
+
+/usr/include/c++/15.2.1/bits/stl_multimap.h:
+
+/usr/include/OpenEXR/IexBaseExc.h:
+
+/usr/include/bits/pthreadtypes.h:
+
+/usr/include/c++/15.2.1/tr1/beta_function.tcc:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512bwintrin.h:
+
+/usr/include/bits/select.h:
+
+/usr/include/bits/setjmp.h:
+
+/usr/include/c++/15.2.1/bits/this_thread_sleep.h:
+
+/usr/include/bits/signum-generic.h:
+
+/usr/include/alloca.h:
+
+/usr/include/bits/sigstksz.h:
+
+/usr/include/c++/15.2.1/bits/stl_iterator.h:
+
+/usr/include/c++/15.2.1/bits/stl_iterator_base_funcs.h:
+
+/usr/include/features.h:
+
+/usr/include/c++/15.2.1/chrono:
+
+/usr/include/c++/15.2.1/bits/stl_iterator_base_types.h:
+
+/usr/include/c++/15.2.1/bits/stl_multiset.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2convertintrin.h:
+
+/usr/include/c++/15.2.1/bits/stl_pair.h:
+
+/usr/include/c++/15.2.1/bits/stl_raw_storage_iter.h:
+
+/usr/include/c++/15.2.1/bits/stl_queue.h:
+
+/usr/include/c++/15.2.1/bits/stl_set.h:
+
+/usr/include/c++/15.2.1/bits/stl_tempbuf.h:
+
+/usr/include/stdc-predef.h:
+
+/usr/include/sys/ucontext.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vp2intersectvlintrin.h:
+
+/usr/include/c++/15.2.1/bits/stl_tree.h:
+
+/usr/include/c++/15.2.1/pstl/glue_algorithm_defs.h:
+
+/usr/include/c++/15.2.1/bits/sstream.tcc:
+
+/usr/include/c++/15.2.1/bits/streambuf_iterator.h:
+
+/usr/include/c++/15.2.1/bits/unique_ptr.h:
+
+/usr/include/c++/15.2.1/bits/uses_allocator.h:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/cpu_defines.h:
+
+/usr/include/c++/15.2.1/bits/version.h:
+
+/usr/include/c++/15.2.1/cerrno:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/ppm_exporter.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/gfniintrin.h:
+
 /usr/include/c++/15.2.1/clocale:
+
+/usr/include/c++/15.2.1/bits/node_handle.h:
+
+/usr/include/bits/types/struct_timeval.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avxifmaintrin.h:
+
+/usr/include/c++/15.2.1/bits/stringfwd.h:
+
+/usr/include/c++/15.2.1/cmath:
+
+/usr/include/endian.h:
+
+/usr/include/c++/15.2.1/compare:
+
+/usr/include/c++/15.2.1/cwctype:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vlintrin.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/metallic.cpp:
 
 /usr/include/c++/15.2.1/concepts:
 
-/usr/include/c++/15.2.1/csignal:
+/usr/include/c++/15.2.1/condition_variable:
 
-/usr/lib/libgcc_s.so:
+/usr/include/c++/15.2.1/csignal:
 
 /usr/include/c++/15.2.1/cstddef:
 
 /usr/include/c++/15.2.1/cstdint:
 
-/usr/include/bits/timex.h:
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avxvnniint8intrin.h:
 
-/usr/include/c++/15.2.1/ctime:
+/usr/include/c++/15.2.1/cstdio:
+
+/usr/include/c++/15.2.1/cstdlib:
+
+/usr/include/c++/15.2.1/cstring:
+
+/usr/include/c++/15.2.1/deque:
+
+/usr/include/c++/15.2.1/ext/aligned_buffer.h:
+
+/usr/include/linux/types.h:
+
+/usr/include/c++/15.2.1/ext/string_conversions.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/loader/objLoader.h:
+
+/usr/include/c++/15.2.1/fstream:
+
+/usr/include/c++/15.2.1/functional:
+
+/usr/include/c++/15.2.1/initializer_list:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2bf16intrin.h:
+
+/usr/include/c++/15.2.1/istream:
+
+/usr/include/c++/15.2.1/math.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/pmmintrin.h:
+
+/usr/include/c++/15.2.1/memory:
+
+/usr/include/c++/15.2.1/map:
+
+/usr/include/c++/15.2.1/new:
+
+/usr/include/c++/15.2.1/numeric:
+
+/usr/include/c++/15.2.1/bits/chrono.h:
+
+/usr/include/c++/15.2.1/bits/stl_function.h:
+
+/usr/include/sys/select.h:
+
+/usr/include/c++/15.2.1/ostream:
+
+/usr/include/c++/15.2.1/pstl/execution_defs.h:
+
+/usr/include/c++/15.2.1/pstl/glue_memory_defs.h:
+
+/usr/include/c++/15.2.1/pstl/glue_numeric_defs.h:
+
+/usr/include/c++/15.2.1/pstl/pstl_config.h:
+
+/usr/include/c++/15.2.1/set:
+
+/usr/include/c++/15.2.1/sstream:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vbmi2intrin.h:
+
+/usr/lib/libdeflate.so.0:
+
+/usr/include/c++/15.2.1/stdexcept:
+
+/usr/include/c++/15.2.1/stdlib.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vbmiintrin.h:
+
+/usr/include/c++/15.2.1/string_view:
+
+/usr/include/c++/15.2.1/thread:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/prfchiintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2-512convertintrin.h:
+
+/usr/include/c++/15.2.1/tr1/exp_integral.tcc:
+
+/usr/include/c++/15.2.1/tr1/gamma.tcc:
+
+/usr/include/bits/types/struct_timespec.h:
+
+/usr/include/c++/15.2.1/tr1/hypergeometric.tcc:
+
+/usr/include/bits/ss_flags.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/ammintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vpopcntdqintrin.h:
+
+/usr/include/c++/15.2.1/tr1/poly_laguerre.tcc:
+
+/usr/include/c++/15.2.1/tr1/modified_bessel_func.tcc:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/mesh.h:
+
+/usr/include/c++/15.2.1/type_traits:
+
+/usr/include/c++/15.2.1/bits/specfun.h:
+
+/usr/include/c++/15.2.1/typeinfo:
+
+/usr/include/c++/15.2.1/version:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/basic_file.h:
+
+/usr/include/bits/siginfo-consts-arch.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/clwbintrin.h:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++io.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512cdintrin.h:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++locale.h:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/ctype_inline.h:
+
+/usr/include/Imath/ImathExport.h:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/error_constants.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vlbwintrin.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/sphere.h:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/gthr-default.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxtf32intrin.h:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/gthr.h:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/opt_random.h:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/os_defines.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxint8intrin.h:
+
+/usr/include/c++/15.2.1/bits/ptr_traits.h:
+
+/usr/include/ctype.h:
+
+/usr/include/c++/15.2.1/iostream:
+
+/usr/include/features-time64.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/vpclmulqdqintrin.h:
+
+/usr/include/asm-generic/bitsperlong.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mm_malloc.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/limits.h:
+
+/usr/include/linux/close_range.h:
+
+/usr/include/linux/sched/types.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/string.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/sys/types.h:
+
+/usr/include/unistd.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxcomplexintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vldqintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vnnivlintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxfp8intrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2-512bf16intrin.h:
+
+/usr/include/c++/15.2.1/bits/ostream.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2-512minmaxintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2-512satcvtintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2satcvtintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512bf16intrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512bf16vlintrin.h:
+
+/usr/include/bits/long-double.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512bitalgvlintrin.h:
+
+/usr/include/c++/15.2.1/streambuf:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512fintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512ifmavlintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/clzerointrin.h:
+
+/usr/include/bits/libc-header-start.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vbmi2vlintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512bitalgintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vbmivlintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vp2intersectintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vpopcntdqvlintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avxvnniint16intrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avxvnniintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/shaintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/sm3intrin.h:
+
+/usr/include/c++/15.2.1/random:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/bmi2intrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/cetintrin.h:
+
+/usr/include/c++/15.2.1/bits/invoke.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/clflushoptintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/emmintrin.h:
+
+/usr/include/c++/15.2.1/bits/memory_resource.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/enqcmdintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/f16cintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/fma4intrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/fmaintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/fxsrintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/ia32intrin.h:
+
+/usr/include/bits/endianness.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/lwpintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/lzcntintrin.h:
+
+/usr/include/c++/15.2.1/bits/char_traits.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mm3dnow.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mmintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/movrsintrin.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/tri.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/omp.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/prfchwintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/raointintrin.h:
+
+/usr/include/c++/15.2.1/bits/ostream.tcc:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++config.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/rtmintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/serializeintrin.h:
+
+/usr/include/c++/15.2.1/bits/std_thread.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/sgxintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/sha512intrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxbf16intrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/smmintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/syslimits.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/tmmintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/tsxldtrkintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/uintrintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/vaesintrin.h:
+
+/usr/include/c++/15.2.1/bits/concept_check.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/wbnoinvdintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/x86gprintrin.h:
+
+/usr/include/bits/uintn-identity.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/x86intrin.h:
+
+/usr/include/stdint.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/xmmintrin.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/sceneObjects.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/xopintrin.h:
+
+CMakeFiles/Raytracer.dir/src/main.cpp.o:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/xsavecintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/xsaveintrin.h:
+
+/usr/lib/Scrt1.o:
+
+/usr/include/bits/signum-arch.h:
+
+/usr/lib/crti.o:

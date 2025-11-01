@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -isystem /usr/include/OpenEXR -isystem /usr/include/Imath
 
 CXX_FLAGS = -g -std=gnu++17
 

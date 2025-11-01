@@ -8,6 +8,8 @@
 #include "../material/material.h"
 #include "../core/color.h"
 #include "../io/ppm_exporter.cpp"
+#include "../io/exr_exporter.cpp"
+#include "../io/pixel.h"
 
 #include <omp.h>
 #include <thread>
@@ -27,7 +29,7 @@ public:
 
         //std::cout << "P3\n" << image_width << " " << image_height << "\n255\n";
 
-        std::vector<std::vector<color>> framebuffer(image_height, std::vector<color>(image_width));
+        std::vector<std::vector<pixel>> framebuffer(image_height, std::vector<pixel>(image_width));
 
         threadPool pool(std::thread::hardware_concurrency());
 
@@ -43,16 +45,43 @@ public:
                 for (int j = start_row; j < end_row; j++) {
                     for (int i = 0; i < image_width; i++) {
 
-                    
                         color pixel_color(0);
+                        double hit_count = 0;
+                        vec3 normal = vec3(0);
+                        double pixel_depth = 0;
+                        vec3 world_P = vec3(0);
+
+                        ray r = get_ray(i, j);
                         for (int sample = 0; sample < samples_per_pixel; sample++) {
-                            ray r = get_ray(i, j);
-                            pixel_color += ray_color(r, max_depth, world);
-                            if (!std::isfinite(pixel_color.x) || !std::isfinite(pixel_color.y) || !std::isfinite(pixel_color.z))
-                                std::cout << "Pixel Color NaN: " << i << " " << j << " " << pixel_color.x << " " << pixel_color.y << " " << pixel_color.z << std::endl;
-                            //pixel_color = normals_ray_color(r, world);
+                            //ray r = get_ray(i, j);
+                            rayHitInfo ray_hit_info;
+                            
+                            pixel_color += ray_color(r, max_depth, world, ray_hit_info);
+                            find_NaN(pixel_color, i, j);
+
+                            if (ray_hit_info.mat)
+                                hit_count++;
                         }
-                        framebuffer[j][i] = pixel_sample_scale * pixel_color;
+
+                        pixel_color = pixel_sample_scale * pixel_color;
+                        hit_count = pixel_sample_scale * hit_count;
+
+                        rayHitInfo single_hit;
+                        ray dr = get_direct_ray(i, j);
+                        if (world.intersect(dr, interval(EPSILON, infinity), single_hit)) {
+                            normal = single_hit.N;
+                            pixel_depth = single_hit.t;
+                            world_P = single_hit.P;
+                        }
+
+                        //framebuffer[j][i] = { pixel_color, hit_count, normal, pixel_depth };
+                        pixel curr_pixel;
+                        curr_pixel.rgb = pixel_color;
+                        curr_pixel.N = normal;
+                        curr_pixel.hit = hit_count;
+                        curr_pixel.depth = pixel_depth;
+                        curr_pixel.P = world_P;
+                        framebuffer[j][i] = curr_pixel;
                     }
 
                     int completed = rows_completed++;
@@ -66,7 +95,8 @@ public:
         }
         pool.wait();
         
-        write_ppm("/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/output/test.ppm", image_width, image_height, framebuffer);
+        //write_ppm("/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/output/test.ppm", image_width, image_height, framebuffer);
+        write_exr16("/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/output/test.exr", image_width, image_height, framebuffer);
 
         std::clog << "\rDone.                                          \n";
     }
@@ -125,9 +155,20 @@ private:
         auto ray_origin = (defocus_angle <= 0) ? camera_center : defocus_disk_sample();
         auto ray_dir = normalize(pixel_sample - ray_origin);
 
-        if (length2(ray_dir) < 1e-8) ray_dir = vec3(0, 0, -1);
+        if (length2(ray_dir) < EPSILON) ray_dir = vec3(0, 0, -1);
 
         return ray(ray_origin, ray_dir);
+    }
+    
+    ray get_direct_ray(int i, int j) const {
+        auto pixel_sample = pixel00_loc + (i * pixel_delta_u) + (j * pixel_delta_v);
+        auto ray_origin = (defocus_angle <= 0) ? camera_center : defocus_disk_sample();
+        auto ray_dir = normalize(pixel_sample - ray_origin);
+
+        if (length2(ray_dir) < EPSILON) ray_dir = vec3(0, 0, -1);
+
+        return ray(ray_origin, ray_dir);
+
     }
 
     vec3 sample_squared() const {
@@ -173,13 +214,14 @@ private:
     return color(0);
     }
     
-    color ray_color(ray &r, int depth, const sceneObject &world) {
+    color ray_color(ray &r, int depth, const sceneObject &world, rayHitInfo& hit_info_out) {
         if (depth <= 0)
             return color(0);
 
         rayHitInfo ray_hit_info;
 
         if (!world.intersect(r, interval(0.001, infinity), ray_hit_info)) {
+            hit_info_out = ray_hit_info;
             return background;
         }
         
@@ -187,14 +229,20 @@ private:
         color attenuation;
         vec3 emitted = ray_hit_info.mat->emit();
 
-        if (!ray_hit_info.mat->scatter(r, ray_hit_info, attenuation, scattered))
+        if (!ray_hit_info.mat->scatter(r, ray_hit_info, attenuation, scattered)) {
+            hit_info_out = ray_hit_info;
             return emitted;
+        }
 
-        return emitted + (attenuation * ray_color(scattered, depth-1, world));
+        hit_info_out = ray_hit_info;
+        return emitted + (attenuation * ray_color(scattered, depth-1, world, ray_hit_info));
 
     }
-
-
+    
+    void find_NaN(color pixel_color, int width, int height) {
+        if (!std::isfinite(pixel_color.x) || !std::isfinite(pixel_color.y) || !std::isfinite(pixel_color.z))
+            std::cout << "Pixel Color NaN: " << width << " " << height << " " << pixel_color.x << " " << pixel_color.y << " " << pixel_color.z << std::endl;
+    }
 };
 
 

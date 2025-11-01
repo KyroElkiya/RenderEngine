@@ -96,6 +96,11 @@ Raytracer_EXTERNAL_OBJECTS =
 Raytracer: CMakeFiles/Raytracer.dir/src/main.cpp.o
 Raytracer: CMakeFiles/Raytracer.dir/build.make
 Raytracer: CMakeFiles/Raytracer.dir/compiler_depend.ts
+Raytracer: /usr/lib/libOpenEXR-3_4.so.33.3.4.2
+Raytracer: /usr/lib/libIlmThread-3_4.so.33.3.4.2
+Raytracer: /usr/lib/libIex-3_4.so.33.3.4.2
+Raytracer: /usr/lib/libOpenEXRCore-3_4.so.33.3.4.2
+Raytracer: /usr/lib/libImath-3_2.so.30.3.2.2
 Raytracer: CMakeFiles/Raytracer.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/out/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable Raytracer"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Raytracer.dir/link.txt --verbose=$(VERBOSE)

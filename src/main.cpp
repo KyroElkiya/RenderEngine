@@ -278,7 +278,7 @@ void nessy() {
 }
 
 int main() {
-    switch(3) {
+    switch(0) {
         case 0: platonic_solids();  break;
         case 1: two_dragons_metallic(); break;
         case 2: two_dragons_lambertian(); break;
